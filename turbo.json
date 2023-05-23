@@ -1,0 +1,44 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env", "**/.env"],
+  "globalEnv": ["PORT"],
+  "pipeline": {
+    "build": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build"],
+      "env": []
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": []
+    },
+    "lint": {
+      "dependsOn": []
+    },
+    "api#bump": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false
+    },
+    "deploy": {
+      "cache": false
+    },
+    "api#dev": {
+      "cache": false
+    },
+    "api#serve": {
+      "cache": false
+    },
+    "@infra/database#db:migrate:latest": {
+      "cache": false
+    },
+    "@infra/database#db:migrate:rollback": {
+      "cache": false
+    }
+  }
+}
