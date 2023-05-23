@@ -1,0 +1,335 @@
+$ jest
+PASS src/operand/__test__/unit/value.test.ts
+PASS src/operand/__test__/unit/reference.test.ts
+PASS src/operand/__test__/unit/collection.test.ts
+PASS src/common/__test__/unit/type-check.test.ts
+PASS src/parser/__test__/unit/index.test.ts
+FAIL src/expression/comparison/__test__/unit/suffix.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/suffix.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/overlap.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/overlap.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/le.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/le.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/ge.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/ge.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/present.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/present.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/not-in.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/not-in.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/gt.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/gt.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/lt.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/lt.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/ne.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/ne.test.ts[0m:[93m5[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m5[0m } from '../../../../__test__/helpers'
+    [7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/ne.test.ts[0m:[93m27[0m:[93m9[0m - [91merror[0m[90m TS7031: [0mBinding element 'left' implicitly has an 'any' type.
+
+    [7m27[0m       ([left, right]) => [operand(left), operand(right), true]
+    [7m  [0m [91m        ~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/ne.test.ts[0m:[93m27[0m:[93m15[0m - [91merror[0m[90m TS7031: [0mBinding element 'right' implicitly has an 'any' type.
+
+    [7m27[0m       ([left, right]) => [operand(left), operand(right), true]
+    [7m  [0m [91m              ~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/undefined.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/undefined.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/in.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/in.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/prefix.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/prefix.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/eq.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/eq.test.ts[0m:[93m5[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m5[0m } from '../../../../__test__/helpers'
+    [7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/eq.test.ts[0m:[93m33[0m:[93m9[0m - [91merror[0m[90m TS7031: [0mBinding element 'left' implicitly has an 'any' type.
+
+    [7m33[0m       ([left, right]) => [operand(left), operand(right), false]
+    [7m  [0m [91m        ~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/eq.test.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m TS7031: [0mBinding element 'right' implicitly has an 'any' type.
+
+    [7m33[0m       ([left, right]) => [operand(left), operand(right), false]
+    [7m  [0m [91m              ~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/not.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/not.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/xor.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/xor.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/or.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/or.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/and.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/and.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/nor.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/nor.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Summary of all failing tests
+FAIL src/expression/comparison/__test__/unit/suffix.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/suffix.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/overlap.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/overlap.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/le.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/le.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/ge.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/ge.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/present.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/present.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/not-in.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/not-in.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/gt.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/gt.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/lt.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/lt.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/ne.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/ne.test.ts[0m:[93m5[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m5[0m } from '../../../../__test__/helpers'
+    [7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/ne.test.ts[0m:[93m27[0m:[93m9[0m - [91merror[0m[90m TS7031: [0mBinding element 'left' implicitly has an 'any' type.
+
+    [7m27[0m       ([left, right]) => [operand(left), operand(right), true]
+    [7m  [0m [91m        ~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/ne.test.ts[0m:[93m27[0m:[93m15[0m - [91merror[0m[90m TS7031: [0mBinding element 'right' implicitly has an 'any' type.
+
+    [7m27[0m       ([left, right]) => [operand(left), operand(right), true]
+    [7m  [0m [91m              ~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/undefined.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/undefined.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/in.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/in.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/prefix.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/prefix.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/comparison/__test__/unit/eq.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/comparison/__test__/unit/eq.test.ts[0m:[93m5[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m5[0m } from '../../../../__test__/helpers'
+    [7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/eq.test.ts[0m:[93m33[0m:[93m9[0m - [91merror[0m[90m TS7031: [0mBinding element 'left' implicitly has an 'any' type.
+
+    [7m33[0m       ([left, right]) => [operand(left), operand(right), false]
+    [7m  [0m [91m        ~~~~[0m
+    [96msrc/expression/comparison/__test__/unit/eq.test.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m TS7031: [0mBinding element 'right' implicitly has an 'any' type.
+
+    [7m33[0m       ([left, right]) => [operand(left), operand(right), false]
+    [7m  [0m [91m              ~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/not.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/not.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/xor.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/xor.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/or.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/or.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/and.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/and.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL src/expression/logical/__test__/unit/nor.test.ts
+  ● Test suite failed to run
+
+    [96msrc/expression/logical/__test__/unit/nor.test.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../../../__test__/helpers' or its corresponding type declarations.
+
+    [7m1[0m import { notSimplified, operand } from '../../../../__test__/helpers'
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Test Suites: 18 failed, 5 passed, 23 total
+Tests:       196 passed, 196 total
+Snapshots:   0 total
+Time:        2.215 s, estimated 3 s
+Ran all test suites.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

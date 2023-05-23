@@ -1,0 +1,16 @@
+$ npm run clean && npm run build:types && npm run build:js
+
+> @locoworks/cijson-utils@0.0.3 clean
+> rm -rf lib && rm -rf types
+
+
+> @locoworks/cijson-utils@0.0.3 build:types
+> tsc --emitDeclarationOnly
+
+
+> @locoworks/cijson-utils@0.0.3 build:js
+> rollup -c
+
+[36m
+[1m./src/index.ts[22m → [1m./lib/cijson-utils.esm.js, ./lib/cijson-utils.js[22m...[39m
+[32mcreated [1m./lib/cijson-utils.esm.js, ./lib/cijson-utils.js[22m in [1m1.1s[22m[39m
