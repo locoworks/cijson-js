@@ -46,4 +46,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.CIJSON_DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "A new version of ${{GITHUB_REPOSITORY}} is released!"
+          args: "A new version of cijson-js is released!"
