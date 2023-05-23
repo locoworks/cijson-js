@@ -1,5 +1,7 @@
-# changelog
+# @locoworks/cijson-engine
 
-## 1.0.0
+## 0.0.3
 
-- Initial release.
+### Patch Changes
+
+- 07a78e7: Test Publishing
