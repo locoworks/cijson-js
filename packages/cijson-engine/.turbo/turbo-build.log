@@ -1,0 +1,146 @@
+$ npm run clean && npm run build:types && npm run build:js
+
+> @locoworks/cijson-engine@0.0.2 clean
+> rm -rf lib && rm -rf types
+
+
+> @locoworks/cijson-engine@0.0.2 build:types
+> tsc --emitDeclarationOnly
+
+
+> @locoworks/cijson-engine@0.0.2 build:js
+> rollup -c
+
+[36m
+[1m./src/index.ts[22m → [1m./lib/cijson-engine.esm.js, ./lib/cijson-engine.js[22m...[39m
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/core/config.ts
+  19:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/core/engine.ts
+  16:47  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  36:47  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  56:47  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  66:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 6 problems (0 errors, 6 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/core/fillHasManyResources.ts
+  30:47  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  39:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  43:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  86:69  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 5 problems (0 errors, 5 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/utils/executeSequence.ts
+  6:13  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/utils/prepareRelationIncludes.ts
+  2:12  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  3:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  4:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 3 problems (0 errors, 3 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/utils/cleanPayload.ts
+   23:26  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   97:17  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  100:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  108:17  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  112:13  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  112:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 6 problems (0 errors, 6 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/utils/enhanceWithHooks.ts
+  22:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/actions/delete/generateOperations.ts
+  13:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/actions/update/generateOperations.ts
+  74:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/actions/create/generateOperations.ts
+  21:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/generators/generate.ts
+  13:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  14:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  15:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  86:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  93:28  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 6 problems (0 errors, 6 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/validators/validate.ts
+    9:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   10:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   11:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   18:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   80:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   81:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  122:22  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  123:25  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  178:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  183:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  192:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  205:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 12 problems (0 errors, 12 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/validators/validator.ts
+    6:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    6:71  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    8:56  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   23:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   24:12  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   25:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   26:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   27:12  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   33:56  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   66:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   67:12  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   68:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   69:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:12  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   76:56  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  188:67  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  203:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  206:27  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  207:27  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  213:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 20 problems (0 errors, 20 warnings)
+
+[32mcreated [1m./lib/cijson-engine.esm.js, ./lib/cijson-engine.js[22m in [1m1.8s[22m[39m
