@@ -1,6 +1,6 @@
 {
   "name": "@locoworks/cijson-operator-knexjs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Code in JSON",
   "main": "lib/cijson-operator.js",
   "module": "lib/cijson-operator.esm.js",
