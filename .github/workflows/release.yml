@@ -42,4 +42,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.CIJSON_DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "A new version of @locoworks/cijson-engine is released! Check here: https://github.com/locoworks/cijson-engine/releases"
+          args: "A new version of @locoworks/cijson-js is released!"
