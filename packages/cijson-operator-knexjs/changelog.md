@@ -1,5 +1,7 @@
-# changelog
+# @locoworks/cijson-operator-knexjs
 
-## 1.0.0
+## 0.0.1
 
-- Initial release.
+### Patch Changes
+
+- 220d001: Publish first version
