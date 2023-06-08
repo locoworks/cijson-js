@@ -1,5 +1,11 @@
 # @locoworks/cijson-utils
 
+## 0.0.6
+
+### Patch Changes
+
+- c0f74ed: Dynamic imports
+
 ## 0.0.5
 
 ### Patch Changes
