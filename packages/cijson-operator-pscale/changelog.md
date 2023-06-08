@@ -1,5 +1,7 @@
-# changelog
+# @locoworks/cijson-operator-pscale
 
-## 1.0.0
+## 0.0.2
 
-- Initial release.
+### Patch Changes
+
+- 3d9e13c: Publish pscale
