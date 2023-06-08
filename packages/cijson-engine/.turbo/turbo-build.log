@@ -1,25 +1,18 @@
 $ npm run clean && npm run build:types && npm run build:js
 
-> @locoworks/cijson-engine@0.0.2 clean
+> @locoworks/cijson-engine@0.0.3 clean
 > rm -rf lib && rm -rf types
 
 
-> @locoworks/cijson-engine@0.0.2 build:types
+> @locoworks/cijson-engine@0.0.3 build:types
 > tsc --emitDeclarationOnly
 
 
-> @locoworks/cijson-engine@0.0.2 build:js
+> @locoworks/cijson-engine@0.0.3 build:js
 > rollup -c
 
 [36m
 [1m./src/index.ts[22m → [1m./lib/cijson-engine.esm.js, ./lib/cijson-engine.js[22m...[39m
-
-/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/core/config.ts
-  19:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-  29:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-
-✖ 2 problems (0 errors, 2 warnings)
-
 
 /Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/core/engine.ts
   16:47  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
@@ -30,6 +23,13 @@ $ npm run clean && npm run build:types && npm run build:js
   66:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
 ✖ 6 problems (0 errors, 6 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/core/config.ts
+  19:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 2 problems (0 errors, 2 warnings)
 
 
 /Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/core/fillHasManyResources.ts
@@ -56,6 +56,12 @@ $ npm run clean && npm run build:types && npm run build:js
 ✖ 3 problems (0 errors, 3 warnings)
 
 
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/utils/enhanceWithHooks.ts
+  22:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+
+
 /Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/utils/cleanPayload.ts
    23:26  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
    97:17  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
@@ -67,8 +73,8 @@ $ npm run clean && npm run build:types && npm run build:js
 ✖ 6 problems (0 errors, 6 warnings)
 
 
-/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/utils/enhanceWithHooks.ts
-  22:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/actions/update/generateOperations.ts
+  74:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
 ✖ 1 problem (0 errors, 1 warning)
 
@@ -79,27 +85,10 @@ $ npm run clean && npm run build:types && npm run build:js
 ✖ 1 problem (0 errors, 1 warning)
 
 
-/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/actions/update/generateOperations.ts
-  74:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-
-✖ 1 problem (0 errors, 1 warning)
-
-
 /Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/actions/create/generateOperations.ts
   21:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
 ✖ 1 problem (0 errors, 1 warning)
-
-
-/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/generators/generate.ts
-  13:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-  14:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-  15:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-  72:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-  86:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-  93:28  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
-
-✖ 6 problems (0 errors, 6 warnings)
 
 
 /Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/validators/validate.ts
@@ -117,6 +106,17 @@ $ npm run clean && npm run build:types && npm run build:js
   205:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
 ✖ 12 problems (0 errors, 12 warnings)
+
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/generators/generate.ts
+  13:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  14:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  15:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  86:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  93:28  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 6 problems (0 errors, 6 warnings)
 
 
 /Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-engine/src/validators/validator.ts
@@ -143,4 +143,4 @@ $ npm run clean && npm run build:types && npm run build:js
 
 ✖ 20 problems (0 errors, 20 warnings)
 
-[32mcreated [1m./lib/cijson-engine.esm.js, ./lib/cijson-engine.js[22m in [1m1.8s[22m[39m
+[32mcreated [1m./lib/cijson-engine.esm.js, ./lib/cijson-engine.js[22m in [1m1.9s[22m[39m

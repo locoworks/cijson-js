@@ -1,13 +1,12 @@
 import "fast-text-encoding";
-
 import { webcrypto } from "crypto";
-
 import { isCloudflareWorkers, isNodeJS } from "./envChecks";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const crypto: any;
 
 async function hashPassword(password: string) {
   if (isNodeJS()) {
+    const { webcrypto } = isNodeJS() ? await import("crypto") : crypto;
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
     const hash = await webcrypto.subtle.digest("SHA-256", data);
