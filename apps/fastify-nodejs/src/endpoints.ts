@@ -1,4 +1,5 @@
 import { pahrStrategy } from "@locoworks/cijson-utils";
+import CreateUser from "./stories/Users/CanCreate";
 
 const prepareStoryContext = (req: any, res: any, next: any) => {
   return {
@@ -15,7 +16,7 @@ const prepareStoryContext = (req: any, res: any, next: any) => {
 const loadEndpoints = (app: any) => {
   app.get("/health", async (request: any, res: any) => {
     return res.code(200).send({
-      status: "evoilve Is Healthy",
+      status: "Fastify NodeJS Is Healthy",
       version: "1.0.17",
       ip: request.ip,
       userAgent: request.headers["user-agent"],
@@ -26,7 +27,7 @@ const loadEndpoints = (app: any) => {
    * Todo: Aim for naming consistency, we used Fetch, Retrieve, Read for same meaning
    */
 
-  const endpoints = [];
+  const endpoints: any = [["post", "/users", CreateUser]];
 
   for (let index = 0; index < endpoints.length; index++) {
     const endpoint: any = endpoints[index];
@@ -40,22 +41,6 @@ const loadEndpoints = (app: any) => {
       return res.code(200).send(result["respondResult"]);
     });
   }
-
-  //   app.get("/authorize", async (req: any, res: any, next: any) => {
-  //     let result = await pahrStrategy(
-  //       Authorize,
-  //       prepareStoryContext(req, res, next)
-  //     );
-  //     return res.code(200).send(result["respondResult"]);
-  //   });
-
-  //   app.post("/register", async (req: any, res: any, next: any) => {
-  //     let result = await pahrStrategy(
-  //       Register,
-  //       prepareStoryContext(req, res, next)
-  //     );
-  //     return res.code(200).send(result["respondResult"]);
-  //   });
 };
 
 export default loadEndpoints;

@@ -12,6 +12,7 @@ const authorize = () => {
 
 const handle = async ({ prepareResult }: StoryExecutionContext) => {
   const cie = CommerceSDK.getEngine();
+  prepareResult["tenant_id"] = "default";
   const createdUser: any = await cie.create("users", {
     payload: prepareResult,
     transformations: ["pick_first"],

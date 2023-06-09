@@ -1,32 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import "fast-text-encoding";
-import { isCloudflareWorkers, isNodeJS } from "./envChecks";
-declare const crypto: any;
+import bcrypt from "bcrypt";
 
 async function hashPassword(password: string) {
-  if (isNodeJS()) {
-    // const { webcrypto } = isNodeJS() ? await import("crypto") : crypto;
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    // const hash = await webcrypto.subtle.digest("SHA-256", data);
-    const hash = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hash));
-    const hashHex = hashArray
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
-    return hashHex;
-  }
-
-  if (isCloudflareWorkers()) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hash = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hash));
-    const hashHex = hashArray
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
-    return hashHex;
-  }
+  const saltRounds = 10;
+  const hash = await bcrypt.hash(password, saltRounds);
+  return hash;
 }
 
 async function validatePassword(password: string, hash: string) {

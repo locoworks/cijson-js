@@ -36,6 +36,7 @@
     "@fastify/swagger": "8.3.1",
     "@fastify/swagger-ui": "^1.8.0",
     "@infra/database": "*",
+    "@temp/commerce": "*",
     "@locoworks/access-sdk": "^0.0.5",
     "@locoworks/cijson-operator-knexjs": "^0.0.1",
     "@locoworks/cijson-utils": "^0.0.1",

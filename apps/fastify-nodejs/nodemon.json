@@ -1,0 +1,12 @@
+{
+  "watch": [
+    "src/**/*.ts",
+    "../../dev_packages/commerce/**/*.*",
+    "../../packages/cijson-operator-knexjs/**/*.*",
+    "../../packages/cijson-engine/**/*.*",
+    "../../packages/cijson-utils/**/*.*",
+    "../../dev_packages/infra-db-conn/**/*.*"
+  ],
+  "ext": "ts,js",
+  "ignore": ["src/**/*.spec.ts"]
+}
