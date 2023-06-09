@@ -2,11 +2,13 @@ import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import { eslint } from "rollup-plugin-eslint";
+// import json from "@rollup/plugin-json";
 
 const libraryName = "cijson-utils";
 const input = "./src/index.ts";
 const extensions = [".js", ".ts"];
 const plugins = [
+  // json(),
   resolve({ extensions }),
   commonjs(),
   eslint(),
@@ -31,4 +33,5 @@ export default {
     },
   ],
   plugins,
+  // external: ["aws-sdk", "mock-aws-s3", "nock"],
 };

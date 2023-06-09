@@ -20,8 +20,24 @@ ciConfig.registerResource(users);
 ciConfig.registerOperator(operator);
 const ciEngine = new CIEngine(ciConfig);
 
+export interface Env {
+	// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
+	// MY_KV_NAMESPACE: KVNamespace;
+	//
+	// Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
+	// MY_DURABLE_OBJECT: DurableObjectNamespace;
+	//
+	// Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
+	// MY_BUCKET: R2Bucket;
+
+	DB_USERNAME: string;
+	DB_PASSWORD: string;
+}
+
 export default {
-	async fetch(request: Request) {
+	async fetch(request: Request, env: Env) {
+		console.log('DB_USERNAME', env.DB_USERNAME);
+
 		try {
 			const createdUser: any = await ciEngine.create('users', {
 				payload: {

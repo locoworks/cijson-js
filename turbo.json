@@ -15,6 +15,9 @@
     "lint": {
       "dependsOn": []
     },
+    "lint:fix": {
+      "dependsOn": []
+    },
     "api#bump": {
       "cache": false
     },

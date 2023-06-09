@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import "fast-text-encoding";
-import bcrypt from "bcrypt";
+
+import bcrypt from "bcryptjs";
 
 async function hashPassword(password: string) {
   const saltRounds = 10;

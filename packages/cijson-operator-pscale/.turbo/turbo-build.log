@@ -1,16 +1,16 @@
 $ npm run clean && npm run build:types && npm run build:js
 
-> @locoworks/cijson-operator-pscale@0.0.1 clean
+> @locoworks/cijson-operator-pscale@0.0.2 clean
 > rm -rf lib
 
 
-> @locoworks/cijson-operator-pscale@0.0.1 build:types
+> @locoworks/cijson-operator-pscale@0.0.2 build:types
 > tsc --emitDeclarationOnly
 
 
-> @locoworks/cijson-operator-pscale@0.0.1 build:js
+> @locoworks/cijson-operator-pscale@0.0.2 build:js
 > rollup -c
 
 [36m
 [1m./src/index.ts[22m → [1m./lib/cijson-operator.esm.js, ./lib/cijson-operator.js[22m...[39m
-[32mcreated [1m./lib/cijson-operator.esm.js, ./lib/cijson-operator.js[22m in [1m3.3s[22m[39m
+[32mcreated [1m./lib/cijson-operator.esm.js, ./lib/cijson-operator.js[22m in [1m1.4s[22m[39m
