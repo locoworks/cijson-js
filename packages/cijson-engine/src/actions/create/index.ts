@@ -41,11 +41,9 @@ const CreateAction = async (config: Config, context: Context) => {
     // respond: [generateFacets],
   });
 
-  console.log("context -----", context.payload);
+  // console.log("context", config.resources["users"]);
 
   context = await executeSequence(config, context, sequence);
-
-  // console.log("context", context.operations);
 
   return context;
 };

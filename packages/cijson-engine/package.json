@@ -39,6 +39,7 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/preset-env": "^7.19.0",
     "@babel/preset-typescript": "^7.18.6",
+    "@locoworks/cijson-utils": "*",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.0.1",
@@ -61,10 +62,11 @@
     "rollup-plugin-eslint": "^7.0.0",
     "ts-jest": "^28.0.8",
     "typedoc": "^0.23.14",
-    "typescript": "^4.8.3",
-    "@locoworks/cijson-utils": "*"
+    "typescript": "^4.8.3"
   },
   "dependencies": {
+    "@types/lodash.merge": "^4.6.7",
+    "lodash.merge": "^4.6.2",
     "scru128": "^2.4.0",
     "validate.js": "^0.13.1"
   }

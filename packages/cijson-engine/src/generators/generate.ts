@@ -70,11 +70,16 @@ const generate = async (config: Config, context: Context) => {
   const action = context.action;
   const payload: APIPayload = context.payload || {};
 
+  // console.log("attributes", JSON.stringify(resourceSpec));
+
   const attributesWithOperations = attributes.filter((a: any) => {
     return a.operations !== undefined;
   });
 
-  console.log("resourceSpec......", JSON.stringify(resourceSpec));
+  // console.log(
+  //   "attributesWithOperations",
+  //   JSON.stringify(attributesWithOperations)
+  // );
 
   for (
     let forIndex = 0;
@@ -83,6 +88,7 @@ const generate = async (config: Config, context: Context) => {
   ) {
     const attribute = attributesWithOperations[forIndex];
     const identifier = attribute.identifier;
+    // console.log("identifier", identifier);
     const operationKeys = Object.keys(attribute.operations);
     let generators: any = [];
 

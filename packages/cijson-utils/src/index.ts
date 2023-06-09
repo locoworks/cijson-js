@@ -3,7 +3,7 @@ import { resolveByDot, setByDot } from "./common/dotFunctions";
 import type { StoryExecutionContext } from "./common/executeStrategy";
 import { executeStrategy, pahrStrategy } from "./common/executeStrategy";
 import findKeysFromRequest from "./common/findKeysFromRequest";
-import { generateRandomKey } from "./common/keyHelpers";
+import { generateRandomKey, generateApiKey } from "./common/keyHelpers";
 import { hashPassword, validatePassword } from "./common/passwordHelpers";
 import pickKeysFromObject from "./common/pickKeysFromObject";
 import validator from "./common/validator";
@@ -16,6 +16,7 @@ export {
   pahrStrategy,
   findKeysFromRequest,
   generateRandomKey,
+  generateApiKey,
   hashPassword,
   validatePassword,
   pickKeysFromObject,

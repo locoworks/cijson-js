@@ -1,4 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import bcrypt from "bcryptjs";
+
+function generateApiKey(apiKeyLength = 16): Promise<string> {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  let apiKey = "";
+  for (let i = 0; i < apiKeyLength; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    apiKey += characters.charAt(randomIndex);
+  }
+
+  return bcrypt.hash(apiKey, 10);
+}
 
 async function generateRandomKey() {
   // if (isNodeJS()) {
@@ -17,6 +31,7 @@ async function generateRandomKey() {
   // if (isCloudflareWorkers()) {
   //   return crypto.randomBytes(32).toString("hex");
   // }
+  return generateApiKey();
 }
 
-export { generateRandomKey };
+export { generateRandomKey, generateApiKey };

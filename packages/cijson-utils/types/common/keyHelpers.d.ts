@@ -1,2 +1,2 @@
-declare function generateRandomKey(): Promise<void>;
+declare function generateRandomKey(): Promise<string>;
 export { generateRandomKey };

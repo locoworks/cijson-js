@@ -35,6 +35,8 @@ const generateOperations = async (config: Config, context: Context) => {
 
   context["operations"] = operations;
 
+  // console.log("operations", JSON.stringify(operations));
+
   return context;
 };
 

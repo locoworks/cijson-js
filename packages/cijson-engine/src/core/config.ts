@@ -1,5 +1,6 @@
 //import { deepAssign } from "@locoworks/cijson-utils";
 import { deepAssign } from "@locoworks/cijson-utils";
+import merge from "lodash.merge";
 
 import type {
   Config,
@@ -38,13 +39,15 @@ class CIJConfig implements Config {
     this.validators[validatorName] = validatorFunc;
   }
 
-  registerResource(resource: Resource): void {
+  registerResource(originalResource: Resource): void {
     const attributesArray = [];
     const relationsArray = [];
+    let resource = JSON.parse(JSON.stringify(originalResource));
 
     resource.mixins.forEach((mixin: string) => {
       if (this.mixins[mixin]) {
-        resource = deepAssign()(resource, this.mixins[mixin]);
+        // resource = deepAssign()(resource, this.mixins[mixin]);
+        resource = merge(resource, this.mixins[mixin]);
       }
     });
 
@@ -64,7 +67,7 @@ class CIJConfig implements Config {
 
     resource.attributes = attributesArray;
     resource.relations = relationsArray;
-    this.resources[resource.name] = resource;
+    this.resources[resource.name] = JSON.parse(JSON.stringify(resource));
   }
 
   registerHook(hookName: string, hookFunction: Hook) {
