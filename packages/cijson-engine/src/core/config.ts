@@ -1,4 +1,4 @@
-//import { deepAssign } from "@locospec-cijson/utils";
+//import { deepAssign } from "@locoworks/cijson-utils";
 import { deepAssign } from "@locoworks/cijson-utils";
 
 import type {

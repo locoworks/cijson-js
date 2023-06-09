@@ -1,0 +1,112 @@
+{
+  "name": "users",
+  "primary": ["id"],
+  "softDelete": true,
+  "persistence": {
+    "table": "access_users"
+  },
+  "mixins": ["timestamps"],
+  "attributes": {
+    "id": {
+      "label": "ID",
+      "operations": {
+        "create": {
+          "generate": [
+            {
+              "type": "scru_pid",
+              "prefix": "user"
+            }
+          ],
+          "validate": [{ "type": "notempty" }]
+        },
+        "update": {
+          "validate": [
+            { "type": "required" },
+            {
+              "type": "exists",
+              "table": "access_users",
+              "column": "id"
+            }
+          ]
+        }
+      }
+    },
+    "tenant_id": {
+      "label": "Tenant",
+      "operations": {}
+    },
+    "password": {
+      "label": "Password",
+      "operations": {
+        "create": {
+          "generate": [
+            {
+              "type": "password"
+            }
+          ],
+          "validate": [{ "type": "required" }]
+        }
+      }
+    },
+    "meta": {
+      "label": "Profile",
+      "operations": {},
+      "ui": {
+        "detail": {
+          "display": true
+        }
+      }
+    }
+  },
+  "relations": {
+    "attributes": {
+      "label": "Attributes",
+      "relation": {
+        "localKey": "id",
+        "foreignKey": "user_id",
+        "type": "has_many",
+        "resource": "attributes"
+      }
+    },
+    "tokens": {
+      "label": "Tokens",
+      "relation": {
+        "localKey": "uuid",
+        "foreignKey": "sub",
+        "type": "has_many",
+        "resource": "admin-tokens",
+        "filter": {
+          "issuer": "user"
+        }
+      }
+    }
+  },
+  "filterBy": {
+    "attribute_value": {
+      "localKey": "users.id",
+      "operation": "in",
+      "transformations": [
+        {
+          "operation": "eq",
+          "resource": "admin-attributes",
+          "findByKey": "value",
+          "findByValue": "attribute_value",
+          "extract": "user_uuid"
+        }
+      ]
+    },
+    "attribute_value_like": {
+      "localKey": "users.uuid",
+      "operation": "in",
+      "transformations": [
+        {
+          "operation": "like",
+          "resource": "admin-attributes",
+          "findByKey": "value",
+          "findByValue": "attribute_value_like",
+          "extract": "user_uuid"
+        }
+      ]
+    }
+  }
+}

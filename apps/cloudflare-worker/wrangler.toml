@@ -1,0 +1,5 @@
+name = "cie-worker" # todo
+main = "./src/index.ts"
+compatibility_date = "2023-04-06"
+usage_model = "unbound"
+# node_compat = true

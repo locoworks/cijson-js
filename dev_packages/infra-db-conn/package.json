@@ -1,0 +1,39 @@
+{
+  "name": "@infra/database",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "prettier": "@betalectic-reusejs/shared-config-prettier-js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "tsc -w",
+    "test": "jest",
+    "db:migrate:latest": "NODE_OPTIONS='--loader ts-node/esm' knex --knexfile src/knexfile.ts migrate:latest",
+    "db:migrate:rollback": "NODE_OPTIONS='--loader ts-node/esm' knex --knexfile src/knexfile.ts migrate:rollback"
+  },
+  "devDependencies": {
+    "@betalectic-reusejs/shared-config-eslint-node": "^1.2.0",
+    "@betalectic-reusejs/shared-config-prettier-js": "^1.0.0",
+    "@types/node": "^18.15.3",
+    "esbuild": "^0.17.11",
+    "esbuild-register": "^3.4.2",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "prettier": "^2.8.4",
+    "tsconfig": "*",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "mysql2": "^3.2.1",
+    "ts-node": "^10.9.1"
+  }
+}

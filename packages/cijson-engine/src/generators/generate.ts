@@ -34,7 +34,8 @@ const generateAttribute = async (
     }
 
     case "datetime":
-      value = new Date().toISOString();
+      // value = new Date().toISOString();
+      value = new Date().toISOString().replace("T", " ").replace("Z", "");
       break;
 
     case "future_datetime": {
@@ -73,7 +74,7 @@ const generate = async (config: Config, context: Context) => {
     return a.operations !== undefined;
   });
 
-  // console.log("payload......", resourceSpec);
+  console.log("resourceSpec......", JSON.stringify(resourceSpec));
 
   for (
     let forIndex = 0;

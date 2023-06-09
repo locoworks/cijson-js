@@ -1,0 +1,38 @@
+{
+  "name": "@temp/commerce",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "tsc -w",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@betalectic-reusejs/shared-config-eslint-node": "^1.2.0",
+    "@betalectic-reusejs/shared-config-prettier-js": "^1.0.0",
+    "@infra/database": "*",
+    "@locoworks/cijson-engine": "*",
+    "@locoworks/cijson-operator-knexjs": "*",
+    "@types/node": "^18.15.3",
+    "esbuild": "^0.17.11",
+    "esbuild-register": "^3.4.2",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "nodemon": "^2.0.21",
+    "prettier": "^2.8.4",
+    "tsconfig": "*",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {}
+}

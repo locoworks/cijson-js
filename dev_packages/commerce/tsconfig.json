@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2015"],
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@root/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules", "database"],
+  "extends": "tsconfig/base.json",
+  "include": ["src"]
+}

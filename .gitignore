@@ -1,3 +1,6 @@
 node_modules
 .turbo
 turbo-build.log
+dist
+lib
+.DS_Store

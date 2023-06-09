@@ -50,15 +50,15 @@ const addToConstraints = (
       };
     }
 
-    if (validator.type === "date_iso") {
-      constraints[attribute_identifier]["format"] = {
-        /* eslint-disable max-len */
-        pattern:
-          /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/,
-        /* eslint-enable max-len */
-        message: `^Please enter valid ${attribute.label} matching date_iso`,
-      };
-    }
+    // if (validator.type === "date_iso") {
+    //   constraints[attribute_identifier]["format"] = {
+    //     /* eslint-disable max-len */
+    //     pattern:
+    //       /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/,
+    //     /* eslint-enable max-len */
+    //     message: `^Please enter valid ${attribute.label} matching date_iso`,
+    //   };
+    // }
 
     if (validator.type === "regex") {
       constraints[attribute_identifier]["format"] = {

@@ -14,12 +14,21 @@
     "test": "turbo run test",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "npm run build && changeset publish"
+    "release": "npm run build && changeset publish",
+    "cfw:deploy": "dotenv -- yarn turbo run deploy --filter=cie-worker...",
+    "cfw:dev": "dotenv -- yarn turbo run dev --filter=cie-worker...",
+    "cie:build": "yarn turbo run build --filter=@locoworks/cijson-engine...",
+    "api:migration": "turbo run api#migration",
+    "api:migrate-serve": "yarn db:migrate:latest && yarn api:serve",
+    "api:serve": "turbo run api#serve",
+    "db:migrate:latest": "dotenv -- turbo run @infra/database#db:migrate:latest",
+    "db:migrate:rollback": "dotenv -- turbo run @infra/database#db:migrate:rollback",
+    "db:migrate:make": "npx knex migrate:make"
   },
   "workspaces": [
     "apps/*",
     "packages/*",
-    "features/*"
+    "dev_packages/*"
   ],
   "dependencies": {
     "@changesets/cli": "^2.26.1",

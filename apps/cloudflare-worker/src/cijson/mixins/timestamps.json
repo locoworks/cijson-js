@@ -1,0 +1,28 @@
+{
+  "attributes": {
+    "created_at": {
+      "operations": {
+        "create": {
+          "generate": "datetime",
+          "validate": [{ "type": "notempty" }, { "type": "date_iso" }]
+        }
+      }
+    },
+    "updated_at": {
+      "operations": {
+        "create,update,patch": {
+          "generate": "datetime",
+          "validate": [{ "type": "notempty" }, { "type": "date_iso" }]
+        }
+      }
+    },
+    "deleted_at": {
+      "operations": {
+        "delete": {
+          "generate": "datetime",
+          "validate": [{ "type": "notempty" }, { "type": "date_iso" }]
+        }
+      }
+    }
+  }
+}
