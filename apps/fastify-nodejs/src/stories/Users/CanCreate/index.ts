@@ -2,6 +2,7 @@ import type { StoryExecutionContext } from "@locoworks/cijson-utils";
 import {
   findKeysFromRequest,
   generateRandomKey,
+  hashPassword,
 } from "@locoworks/cijson-utils";
 import { CanCreateUser } from "@temp/commerce";
 
@@ -16,7 +17,9 @@ const authorize = () => {
 
 const handle = async ({ prepareResult }: StoryExecutionContext) => {
   try {
-    console.log("generateRandomKey", await generateRandomKey());
+    // const hashed = await hashPassword("somethingSecret");
+    // console.log("hashed salt ->", process.env.BCRYPT_SALT);
+    // console.log("generateRandomKey", await generateRandomKey());
     return await CanCreateUser(prepareResult);
   } catch (error) {
     throw error;

@@ -3,14 +3,13 @@ import "fast-text-encoding";
 
 import bcrypt from "bcryptjs";
 
-async function hashPassword(password: string) {
-  const saltRounds = 10;
-  const hash = await bcrypt.hash(password, saltRounds);
+async function hashPassword(password: string, salt: string) {
+  var hash = bcrypt.hashSync(password, salt);
   return hash;
 }
 
-async function validatePassword(password: string, hash: string) {
-  const hashedPassword = await hashPassword(password);
+async function validatePassword(password: string, hash: string, salt: string) {
+  const hashedPassword = await hashPassword(password, salt);
   return hash === hashedPassword;
 }
 

@@ -7,4 +7,5 @@ export interface Config {
     hooks: HookCollection;
     validators: ValidatorCollection;
     operator: any;
+    bcryptSalt: any;
 }

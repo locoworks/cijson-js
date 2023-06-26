@@ -1,5 +1,3 @@
-//import { deepAssign } from "@locoworks/cijson-utils";
-import { deepAssign } from "@locoworks/cijson-utils";
 import merge from "lodash.merge";
 
 import type {
@@ -18,6 +16,7 @@ class CIJConfig implements Config {
   public validators: ValidatorCollection;
   public hooks: HookCollection;
   public operator: any;
+  public bcryptSalt: any;
 
   constructor() {
     this.resources = {};
@@ -25,6 +24,11 @@ class CIJConfig implements Config {
     this.hooks = {};
     this.validators = {};
     this.operator = undefined;
+    this.bcryptSalt = undefined;
+  }
+
+  setBCryptSalt(salt: any) {
+    this.bcryptSalt = salt;
   }
 
   registerOperator(operator: any) {
@@ -46,12 +50,9 @@ class CIJConfig implements Config {
 
     resource.mixins.forEach((mixin: string) => {
       if (this.mixins[mixin]) {
-        // resource = deepAssign()(resource, this.mixins[mixin]);
         resource = merge(resource, this.mixins[mixin]);
       }
     });
-
-    // console.log("resource.attributes", resource.attributes);
 
     for (const identifier in resource.attributes) {
       const attribute = resource.attributes[identifier];

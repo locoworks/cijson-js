@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import bcrypt from "bcryptjs";
 
-function generateApiKey(apiKeyLength = 16): Promise<string> {
+function generateApiKey(apiKeyLength = 16, salt: string): string {
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -11,10 +11,11 @@ function generateApiKey(apiKeyLength = 16): Promise<string> {
     apiKey += characters.charAt(randomIndex);
   }
 
-  return bcrypt.hash(apiKey, 10);
+  var hash = bcrypt.hashSync(apiKey, salt);
+  return hash;
 }
 
-async function generateRandomKey() {
+async function generateRandomKey(apiKeyLength = 16, salt: string) {
   // if (isNodeJS()) {
   //   //     const secret = new TextEncoder().encode(
   //   // crypto.randomBytes(32).toString("hex")
@@ -31,7 +32,7 @@ async function generateRandomKey() {
   // if (isCloudflareWorkers()) {
   //   return crypto.randomBytes(32).toString("hex");
   // }
-  return generateApiKey();
+  return generateApiKey(apiKeyLength, salt);
 }
 
 export { generateRandomKey, generateApiKey };

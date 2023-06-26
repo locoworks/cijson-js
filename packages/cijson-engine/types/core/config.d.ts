@@ -5,7 +5,9 @@ declare class CIJConfig implements Config {
     validators: ValidatorCollection;
     hooks: HookCollection;
     operator: any;
+    bcryptSalt: any;
     constructor();
+    setBCryptSalt(salt: any): void;
     registerOperator(operator: any): void;
     registerMixin(name: string, resource: Resource): void;
     registerValidator(validatorName: string, validatorFunc: Validator): void;

@@ -1,7 +1,4 @@
-import {
-  hashPassword as generateHashForPassword,
-  resolveByDot,
-} from "@locoworks/cijson-utils";
+import { hashPassword, resolveByDot } from "@locoworks/cijson-utils";
 
 import { APIPayload, Config, Context } from "../interfaces";
 import generateRandomNumber from "./generateRandomNumber";
@@ -20,7 +17,7 @@ const generateAttribute = async (
 
   switch (generator.type) {
     case "password":
-      value = await generateHashForPassword(value);
+      value = await hashPassword(value, config.bcryptSalt || 10);
       break;
 
     case "scru_pid":
