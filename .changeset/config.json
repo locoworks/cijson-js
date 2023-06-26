@@ -8,10 +8,10 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
+    "fastify-nodejs",
     "@infra/database",
     "tsconfig",
     "cie-worker",
-    "fastify-nodejs",
     "@temp/commerce"
   ]
 }
