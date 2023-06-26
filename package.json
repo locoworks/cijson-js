@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "build:publish": "turbo run build:publish",
+    "build:publish": "turbo run build:publish --force",
     "clean": "turbo run clean",
     "dev": "dotenv -- turbo run dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
