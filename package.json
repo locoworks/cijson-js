@@ -16,6 +16,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "npm run build:publish && changeset publish",
+    "publish": "changeset publish",
     "fna:dev": "dotenv -- yarn turbo run dev --filter=fastify-nodejs...",
     "cfw:deploy": "dotenv -- yarn turbo run deploy --filter=cie-worker...",
     "cfw:dev": "dotenv -- yarn turbo run dev --filter=cie-worker...",
