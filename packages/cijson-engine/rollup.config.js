@@ -1,34 +1,35 @@
-import babel from '@rollup/plugin-babel'
-import commonjs from '@rollup/plugin-commonjs'
-import resolve from '@rollup/plugin-node-resolve'
-import { eslint } from 'rollup-plugin-eslint'
+import babel from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
+import { eslint } from "rollup-plugin-eslint";
 
-const libraryName = 'cijson-engine'
-const input = './src/index.ts'
-const extensions = ['.js', '.ts']
+const libraryName = "cijson-engine";
+const input = "./src/index.ts";
+const extensions = [".js", ".ts"];
 const plugins = [
   resolve({ extensions }),
   commonjs(),
   eslint(),
   babel({
     extensions,
-    babelHelpers: 'bundled',
-    exclude: 'node_modules/**',
+    babelHelpers: "bundled",
+    exclude: "node_modules/**",
   }),
-]
+];
 
 export default {
   input,
   output: [
     {
-      file: './lib/' + libraryName + '.esm.js',
-      format: 'esm',
+      file: "./lib/" + libraryName + ".esm.js",
+      format: "esm",
     },
     {
-      file: './lib/' + libraryName + '.js',
-      format: 'cjs',
-      exports: 'named',
+      file: "./lib/" + libraryName + ".js",
+      format: "cjs",
+      exports: "named",
     },
   ],
   plugins,
-}
+  external: ["@locoworks/cijson-utils"],
+};
