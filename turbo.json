@@ -4,8 +4,8 @@
   "globalEnv": ["PORT"],
   "pipeline": {
     "build:publish": {
-      "outputs": ["dist/**"],
-      "dependsOn": [],
+      "outputs": ["lib/**"],
+      "dependsOn": ["^build:publish"],
       "env": []
     },
     "build": {
