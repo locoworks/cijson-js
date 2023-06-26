@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.8
+
+### Patch Changes
+
+- e059575: Remove cijson-utils from external
+
 ## 0.0.7
 
 ### Patch Changes
