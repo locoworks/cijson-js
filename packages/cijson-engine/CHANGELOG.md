@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.7
+
+### Patch Changes
+
+- 3983d15: Use specific version of utils inside engine
+
 ## 0.0.6
 
 ### Patch Changes
