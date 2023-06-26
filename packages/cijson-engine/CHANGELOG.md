@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.9
+
+### Patch Changes
+
+- 3d42cd8: Make cijson-utils devDependency
+
 ## 0.0.8
 
 ### Patch Changes
