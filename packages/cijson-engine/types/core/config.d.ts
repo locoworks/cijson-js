@@ -9,7 +9,7 @@ declare class CIJConfig implements Config {
     registerOperator(operator: any): void;
     registerMixin(name: string, resource: Resource): void;
     registerValidator(validatorName: string, validatorFunc: Validator): void;
-    registerResource(resource: Resource): void;
+    registerResource(originalResource: Resource): void;
     registerHook(hookName: string, hookFunction: Hook): void;
 }
 export default CIJConfig;
