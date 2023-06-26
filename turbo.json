@@ -3,6 +3,11 @@
   "globalDependencies": [".env", "**/.env"],
   "globalEnv": ["PORT"],
   "pipeline": {
+    "build:publish": {
+      "outputs": ["dist/**"],
+      "dependsOn": [],
+      "env": []
+    },
     "build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"],

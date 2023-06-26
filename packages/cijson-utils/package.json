@@ -22,6 +22,7 @@
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "rollup -c",
     "build": "npm run clean && npm run build:types && npm run build:js",
+    "build:publish": "npm run clean && npm run build:types && npm run build:js",
     "docs": "typedoc src && git checkout docs/.nojekyll",
     "test": "jest",
     "lint": "eslint --max-warnings 0 \"src/**/*.{ts,js}\"",
