@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.6
+
+### Patch Changes
+
+- c896d71: Remove cijson-utils as dev dependency
+
 ## 0.0.5
 
 ### Patch Changes
