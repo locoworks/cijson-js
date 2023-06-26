@@ -1,5 +1,11 @@
 # @locoworks/cijson-utils
 
+## 0.0.7
+
+### Patch Changes
+
+- 941efff: Publish engine and utils
+
 ## 0.0.6
 
 ### Patch Changes
