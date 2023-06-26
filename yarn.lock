@@ -1918,7 +1918,7 @@
   resolved "https://registry.yarnpkg.com/@jsdevtools/ono/-/ono-7.1.3.tgz#9df03bbd7c696a5c58885c34aa06da41c8543796"
   integrity sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==
 
-"@locoworks/access-sdk@^0.0.5":
+"@locoworks/access-sdk@*":
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/@locoworks/access-sdk/-/access-sdk-0.0.5.tgz#5e2c70614c0e5daf12696a8543202eb61e0a3c01"
   integrity sha512-ibtbcK5oVLWYhX29J87E9ny+ICfOzsuSbIpiR5wj73l873IYflF9wkmrczkVRFgC0IsOD7st21iwknGnSNftoQ==
@@ -1930,10 +1930,27 @@
     scru128 "^2.4.1"
     validate.js "^0.13.1"
 
+"@locoworks/cijson-engine@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@locoworks/cijson-engine/-/cijson-engine-0.0.3.tgz#118fd34a58f5eaad01504bf94688daf1a1701ada"
+  integrity sha512-OKk+VDdg2QSWF/SvmPyVgiy9Z9D86161nRHoaxalUqpUzdcYyF3QF+g2qS6CGu2gZxLQFox9UwPXkJODwz5nJw==
+  dependencies:
+    "@locoworks/cijson-utils" "^0.0.3"
+    scru128 "^2.4.1"
+    validate.js "^0.13.1"
+
 "@locoworks/cijson-utils@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@locoworks/cijson-utils/-/cijson-utils-0.0.1.tgz#2918d65373a21ff2b33c63670a5737db3f09cf66"
   integrity sha512-fmMtpraurc/M/frN+IYiBXEdsjPsVrRlt0uXwWoLWJxXdsRjOJf4E9fyNBJh5bz8c4+DhNMvAlpbdxScaYgbAw==
+  dependencies:
+    fast-text-encoding "^1.0.6"
+    validate.js "^0.13.1"
+
+"@locoworks/cijson-utils@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@locoworks/cijson-utils/-/cijson-utils-0.0.3.tgz#46ad2b7af871d020fd65157b2e214c698d3f7fa8"
+  integrity sha512-zeRsTqwH3FZJz7okmxyKbwVqvVjVl7oVRiVpMJCWUM5Fw3oFcG8WZM/8+F9j0FIQOVn6OwLreKFFKyOisav7kQ==
   dependencies:
     fast-text-encoding "^1.0.6"
     validate.js "^0.13.1"
