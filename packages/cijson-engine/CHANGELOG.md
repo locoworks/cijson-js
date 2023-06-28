@@ -1,5 +1,12 @@
 # @locoworks/cijson-engine
 
+## 0.0.10
+
+### Patch Changes
+
+- 7d46925: Remove hash for password
+- ecc3bf5: Introduce bcrypt salt
+
 ## 0.0.9
 
 ### Patch Changes

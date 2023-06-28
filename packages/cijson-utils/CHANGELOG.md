@@ -1,5 +1,11 @@
 # @locoworks/cijson-utils
 
+## 0.0.9
+
+### Patch Changes
+
+- ecc3bf5: Introduce bcrypt salt
+
 ## 0.0.8
 
 ### Patch Changes
