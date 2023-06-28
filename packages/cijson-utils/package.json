@@ -1,6 +1,6 @@
 {
   "name": "@locoworks/cijson-utils",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Code in JSON Utils",
   "main": "lib/cijson-utils.js",
   "module": "lib/cijson-utils.esm.js",
