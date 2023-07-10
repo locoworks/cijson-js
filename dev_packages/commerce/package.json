@@ -34,5 +34,7 @@
     "tsconfig": "*",
     "typescript": "^5.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@locoworks/cijson-utils": "*"
+  }
 }
