@@ -30,6 +30,10 @@ const addFilters = (knex: any, dataBuilder: any, filters: any) => {
         dataBuilder = dataBuilder.where(filter.column, "=", `${filter.value}`);
         break;
 
+      case "lte":
+        dataBuilder = dataBuilder.where(filter.column, "<=", `${filter.value}`);
+        break;
+
       //   case "json_path_like":
       //     let json_path_like_columnArray = filter.column.split(".");
       //     let json_path_like_json_col = json_path_like_columnArray[0];
