@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.11
+
+### Patch Changes
+
+- 50a824c: limitBy and sortBy using request context
+
 ## 0.0.10
 
 ### Patch Changes
