@@ -9,7 +9,7 @@ const generateOperations = async (config: Config, context: Context) => {
 
   const limitBy = context?.limitBy || payload?.limitBy ||
     resourceSpec.limitBy || { page: 1, per_page: 10 };
-  const filterBy = context?.filterBy || [];
+  const filterBy = context?.filterBy || payload?.filterBy || [];
   let sortBy = context?.sortBy || payload?.sortBy || resourceSpec.sortBy || [];
   const table = resourceSpec.persistence.table;
   let filters = [];
