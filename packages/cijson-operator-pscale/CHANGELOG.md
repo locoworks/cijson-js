@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.4
+
+### Patch Changes
+
+- e323660: Fix issues with count, delete and soft_delete
+
 ## 0.0.3
 
 ### Patch Changes
