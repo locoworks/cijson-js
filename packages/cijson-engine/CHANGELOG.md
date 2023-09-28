@@ -1,5 +1,17 @@
 # @locoworks/cijson-engine
 
+## 0.0.13
+
+### Patch Changes
+
+- 2cef36a: internal payload corrected
+
+## 0.0.12
+
+### Patch Changes
+
+- bf13171: added filterBy with payload
+
 ## 0.0.11
 
 ### Patch Changes
