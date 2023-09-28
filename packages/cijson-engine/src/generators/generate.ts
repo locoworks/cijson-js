@@ -38,7 +38,7 @@ const generateAttribute = async (
     case "future_datetime": {
       const date = new Date();
       date.setMinutes(date.getMinutes() + generator.minutes);
-      value = date.toISOString();
+      value = date.toISOString().replace("T", " ").replace("Z", "");
       break;
     }
 
