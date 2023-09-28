@@ -154,7 +154,7 @@ class PScaleOperator implements Operator {
         switch (dbOp.type) {
           case "soft_delete":
             filters = dbOp.filters;
-            dataBuilder = this.instance(dbOp.table);
+            dataBuilder = sqlBricks.from(dbOp.table);
             dataBuilder = addFilters(dataBuilder, filters);
             dataBuilder = dataBuilder.where(dbOp.where).update(dbOp.payload);
 
@@ -175,7 +175,7 @@ class PScaleOperator implements Operator {
 
           case "delete":
             filters = dbOp.filters;
-            dataBuilder = this.instance(dbOp.table);
+            dataBuilder = sqlBricks.from(dbOp.table);
             dataBuilder = addFilters(dataBuilder, filters);
 
             dataBuilder = dataBuilder.where(dbOp.where).delete();
@@ -212,9 +212,14 @@ class PScaleOperator implements Operator {
             totalBuilder = sqlBricks
               .select("COUNT(*)")
               .from(dbOp.table)
-              .where(dbOp.where)
-              .whereNot(dbOp.whereNot)
               .where(sqlBricks.isNull(deleted_at_column));
+
+            if (Object.keys(dbOp.where).length > 0) {
+              totalBuilder = totalBuilder.where(dbOp.where);
+            }
+            if (Object.keys(dbOp.whereNot).length > 0) {
+              totalBuilder = totalBuilder.where(sqlBricks.not(dbOp.whereNot));
+            }
 
             queryPrinter = totalBuilder.clone();
 
