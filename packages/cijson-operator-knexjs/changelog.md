@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-knexjs
 
+## 0.0.3
+
+### Patch Changes
+
+- 23c0e17: lte operator added for filterBy
+
 ## 0.0.2
 
 ### Patch Changes
