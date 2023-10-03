@@ -33,19 +33,20 @@ const addFilters = (sDataBuilder: any, filters: any) => {
         sDataBuilder = sDataBuilder.where(filter.column, `${filter.value}`);
         break;
 
-      //   case "json_path_like":
-      //     let json_path_like_columnArray = filter.column.split(".");
-      //     let json_path_like_json_col = json_path_like_columnArray[0];
-      //     json_path_like_columnArray[0] = "$";
-      //     let json_path_like_json_path = json_path_like_columnArray.join(".");
-      //     dataBuilder = dataBuilder.where(
-      //       knex.raw(
-      //         `lower(jsonb_path_query_first("${json_path_like_json_col}", '${json_path_like_json_path}') #>> '{}')`
-      //       ),
-      //       "LIKE",
-      //       `%${filter.value.toLowerCase()}%`
-      //     );
-      //     break;
+      case "json_path_like":
+        console.log("Filter", filter);
+        let json_path_like_columnArray = filter.column.split(".");
+        let json_path_like_json_col = json_path_like_columnArray[0];
+        json_path_like_columnArray[0] = "$";
+        let json_path_like_json_path = json_path_like_columnArray.join(".");
+        console.log("json_path_like_json_path", json_path_like_json_path);
+        sDataBuilder = sDataBuilder.where(
+          sqlBricks.like(
+            `LOWER(${json_path_like_json_col}->'${json_path_like_json_path}')`,
+            `%${filter.value.toLowerCase()}%`
+          )
+        );
+        break;
 
       //   case "json_path_comp":
       //     let json_path_comp_columnArray = filter.column.split(".");
