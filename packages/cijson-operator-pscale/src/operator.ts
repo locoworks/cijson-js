@@ -154,9 +154,9 @@ class PScaleOperator implements Operator {
         switch (dbOp.type) {
           case "soft_delete":
             filters = dbOp.filters;
-            dataBuilder = sqlBricks.from(dbOp.table);
+            dataBuilder = sqlBricks.update(dbOp.table, dbOp.payload);
             dataBuilder = addFilters(dataBuilder, filters);
-            dataBuilder = dataBuilder.where(dbOp.where).update(dbOp.payload);
+            dataBuilder = dataBuilder.where(dbOp.where);
 
             queryPrinter = dataBuilder.clone();
 
@@ -175,17 +175,11 @@ class PScaleOperator implements Operator {
 
           case "delete":
             filters = dbOp.filters;
-            dataBuilder = sqlBricks.from(dbOp.table);
+            dataBuilder = sqlBricks.delete(dbOp.table);
             dataBuilder = addFilters(dataBuilder, filters);
-
-            dataBuilder = dataBuilder.where(dbOp.where).delete();
+            dataBuilder = dataBuilder.where(dbOp.where);
 
             queryPrinter = dataBuilder.clone();
-
-            if (process.env.PRINT_QUERY === "true") {
-              console.log("queryPrinter", queryPrinter.toString());
-            }
-
             dataResult = await tx.execute(dataBuilder.clone().toString(), []);
 
             builtResult = {
