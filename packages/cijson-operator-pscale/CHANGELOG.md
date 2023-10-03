@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.5
+
+### Patch Changes
+
+- c662204: Fix delete queries
+
 ## 0.0.4
 
 ### Patch Changes
