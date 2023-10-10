@@ -1,5 +1,12 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.6
+
+### Patch Changes
+
+- aa08c93: Release
+- 6e6b87d: Introduce json_path_like filter
+
 ## 0.0.5
 
 ### Patch Changes
