@@ -274,7 +274,12 @@ class PScaleOperator implements Operator {
             totalBuilder = addFilters(totalBuilder, filters);
 
             if (dbOp.sortBy) {
-              // dataBuilder = dataBuilder.orderBy(dbOp.sortBy);
+              let orderByClause = dbOp.sortBy
+                .map((s: any) => {
+                  return `${s.column} ${s.order}`;
+                })
+                .join(", ");
+              dataBuilder = dataBuilder.orderBy(orderByClause);
             }
 
             if (dbOp.limit !== undefined && dbOp.limit !== 999) {
