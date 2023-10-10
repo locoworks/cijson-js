@@ -279,7 +279,9 @@ class PScaleOperator implements Operator {
                   return `${s.column} ${s.order}`;
                 })
                 .join(", ");
-              dataBuilder = dataBuilder.orderBy(orderByClause);
+              if (orderByClause !== "") {
+                dataBuilder = dataBuilder.orderBy(orderByClause);
+              }
             }
 
             if (dbOp.limit !== undefined && dbOp.limit !== 999) {

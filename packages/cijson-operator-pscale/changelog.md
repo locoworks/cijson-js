@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.7
+
+### Patch Changes
+
+- e31b37b: introduce order by with pscale
+
 ## 0.0.6
 
 ### Patch Changes
