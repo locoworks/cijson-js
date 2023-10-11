@@ -29,6 +29,12 @@ const addFilters = (sDataBuilder: any, filters: any) => {
       //   dataBuilder = dataBuilder.whereIn(filter.column, filter.value);
       //   break;
 
+      case "noteq":
+        sDataBuilder = sDataBuilder.where(
+          sqlBricks.notEq(filter.column, `${filter.value}`)
+        );
+        break;
+
       case "eq":
         sDataBuilder = sDataBuilder.where(filter.column, `${filter.value}`);
         break;
