@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.8
+
+### Patch Changes
+
+- 53ca9fc: Handle empty orderByClause
+
 ## 0.0.7
 
 ### Patch Changes
