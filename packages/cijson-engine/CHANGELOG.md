@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.15
+
+### Patch Changes
+
+- 6f553e7: Handle patch for generator
+
 ## 0.0.14
 
 ### Patch Changes
