@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.16
+
+### Patch Changes
+
+- 580d483: Fix patch issue
+
 ## 0.0.15
 
 ### Patch Changes
