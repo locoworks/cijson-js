@@ -193,7 +193,7 @@ const validate = async (config: Config, context: Context) => {
 
     if (
       action === "patch" &&
-      !payloadObjectKeys.includes(attribute.resolved_identifier)
+      !payloadObjectKeys.includes(attribute.identifier)
     ) {
       continue;
     }
