@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.9
+
+### Patch Changes
+
+- 9b9ff4c: Introduce notEq
+
 ## 0.0.8
 
 ### Patch Changes
