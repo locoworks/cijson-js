@@ -73,6 +73,8 @@ const generate = async (config: Config, context: Context) => {
     return a.operations !== undefined;
   });
 
+  const payloadObjectKeys = Object.keys(payload);
+
   // console.log(
   //   "attributesWithOperations",
   //   JSON.stringify(attributesWithOperations)
@@ -88,6 +90,13 @@ const generate = async (config: Config, context: Context) => {
     // console.log("identifier", identifier);
     const operationKeys = Object.keys(attribute.operations);
     let generators: any = [];
+
+    if (
+      action === "patch" &&
+      !payloadObjectKeys.includes(attribute.resolved_identifier)
+    ) {
+      continue;
+    }
 
     for (let index = 0; index < operationKeys.length; index++) {
       const operationKey = operationKeys[index];
