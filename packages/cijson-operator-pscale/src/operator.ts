@@ -294,13 +294,17 @@ class PScaleOperator implements Operator {
               dataBuilder = dataBuilder.limit(dbOp.limit);
             }
 
-            if (dbOp.offset && dbOp.limit !== undefined && dbOp.limit !== 999) {
+            if (
+              dbOp.offset !== undefined &&
+              dbOp.limit !== undefined &&
+              dbOp.limit !== 999
+            ) {
               dataBuilder = dataBuilder.offset(dbOp.offset);
             }
 
-            queryPrinter = dataBuilder.clone();
+            queryPrinter = dataBuilder.toString();
 
-            dataResult = await tx.execute(dataBuilder.clone().toString(), []);
+            dataResult = await tx.execute(queryPrinter, []);
             totalResult = await tx.execute(totalBuilder.clone().toString(), []);
             total = parseInt(totalResult.rows[0]["count(*)"]);
 
@@ -318,7 +322,7 @@ class PScaleOperator implements Operator {
                 total_page: Math.ceil(total / dbOp.limit),
               },
               debug: {
-                queryPrinter: queryPrinter.toString(),
+                queryPrinter: queryPrinter,
               },
             };
 
