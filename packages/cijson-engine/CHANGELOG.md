@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.1.0
+
+### Minor Changes
+
+- 5360ec8: Enabled filterby functionality
+
 ## 0.0.16
 
 ### Patch Changes
