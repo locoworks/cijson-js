@@ -20,6 +20,7 @@ import enhanceWithHooks from "../../utils/enhanceWithHooks";
 import executeSequence from "../../utils/executeSequence";
 import runOperations from "../../utils/runOperations";
 import generateOperations from "./generateOperations";
+import runTransformationsForFilters from "../../utils/runTransformationsForFilters";
 
 const ReadAction = async (config: Config, context: Context) => {
   const sequence = await enhanceWithHooks(config, context, {
@@ -27,7 +28,7 @@ const ReadAction = async (config: Config, context: Context) => {
     authorize: [authorize],
     validate: [],
     handle: [
-      //   runTransformationsForFilters,
+      runTransformationsForFilters,
       generateOperations,
       runOperations,
       //   fillBelongsToOneResources,

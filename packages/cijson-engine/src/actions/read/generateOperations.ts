@@ -29,7 +29,7 @@ const generateOperations = async (config: Config, context: Context) => {
       };
     });
 
-  filters = [...filters];
+  filters = [...filters, ...(context.filters || [])];
 
   sortBy = sortBy.map((s: SortBy) => {
     return { column: s.attribute, order: s.order, nulls: "last" };

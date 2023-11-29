@@ -11,6 +11,10 @@ export interface Pagination {
     page?: number;
     per_page?: number;
 }
+export interface LimitBy {
+    page?: number;
+    per_page?: number;
+}
 export interface SortBy {
     attribute: string;
     order: string;
@@ -30,6 +34,9 @@ export interface Context {
     action: string;
     payload?: Payload;
     filterBy?: FilterBy[];
+    limitBy?: LimitBy;
+    sortBy?: SortBy;
+    filters?: any[];
     includeRelations?: string[];
     transformations?: any[];
     directColumns?: string[];

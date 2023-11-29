@@ -43,6 +43,7 @@ export interface Context {
   filterBy?: FilterBy[];
   limitBy?: LimitBy;
   sortBy?: SortBy;
+  filters?: any[];
   includeRelations?: string[];
   transformations?: any[];
   directColumns?: string[];
