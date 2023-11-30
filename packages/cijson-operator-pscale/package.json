@@ -1,6 +1,6 @@
 {
   "name": "@locoworks/cijson-operator-pscale",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Code in JSON",
   "main": "lib/cijson-operator.js",
   "module": "lib/cijson-operator.esm.js",
