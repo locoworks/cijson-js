@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.11
+
+### Patch Changes
+
+- 9d9eb08: Introduce whereIn clause and fix cloneObj issue
+
 ## 0.0.10
 
 ### Patch Changes
