@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.12
+
+### Patch Changes
+
+- b0e4f54: Implement patch cmd
+
 ## 0.0.11
 
 ### Patch Changes
