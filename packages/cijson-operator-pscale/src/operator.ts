@@ -24,10 +24,11 @@ const addFilters = (sDataBuilder: any, filters: any) => {
       //   dataBuilder = dataBuilder.where(filter.column, ">=", `${filter.value}`);
       //   break;
 
-      // case "in":
-      //   // console.log("in col", filter.value);
-      //   dataBuilder = dataBuilder.whereIn(filter.column, filter.value);
-      //   break;
+      case "in":
+        sDataBuilder = sDataBuilder.where(
+          sqlBricks.in(filter.column, filter.value)
+        );
+        break;
 
       case "noteq":
         sDataBuilder = sDataBuilder.where(

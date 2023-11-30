@@ -1,16 +1,32 @@
 $ npm run clean && npm run build:types && npm run build:js
 
-> @locoworks/cijson-operator-pscale@0.0.2 clean
+> @locoworks/cijson-operator-pscale@0.0.10 clean
 > rm -rf lib
 
 
-> @locoworks/cijson-operator-pscale@0.0.2 build:types
+> @locoworks/cijson-operator-pscale@0.0.10 build:types
 > tsc --emitDeclarationOnly
 
 
-> @locoworks/cijson-operator-pscale@0.0.2 build:js
+> @locoworks/cijson-operator-pscale@0.0.10 build:js
 > rollup -c
 
 [36m
 [1m./src/index.ts[22m → [1m./lib/cijson-operator.esm.js, ./lib/cijson-operator.js[22m...[39m
-[32mcreated [1m./lib/cijson-operator.esm.js, ./lib/cijson-operator.js[22m in [1m1.4s[22m[39m
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+/Users/rajiv/Projects/LoCoWorks/CIJSON/cijson-js/packages/cijson-operator-pscale/src/operator.ts
+   45:9   error  Unexpected lexical declaration in case block                           no-case-declarations
+   45:13  error  'json_path_like_columnArray' is never reassigned. Use 'const' instead  prefer-const
+   46:9   error  Unexpected lexical declaration in case block                           no-case-declarations
+   46:13  error  'json_path_like_json_col' is never reassigned. Use 'const' instead     prefer-const
+   48:9   error  Unexpected lexical declaration in case block                           no-case-declarations
+   48:13  error  'json_path_like_json_path' is never reassigned. Use 'const' instead    prefer-const
+  284:19  error  'orderByClause' is never reassigned. Use 'const' instead               prefer-const
+
+✖ 7 problems (7 errors, 0 warnings)
+  4 errors and 0 warnings potentially fixable with the `--fix` option.
+
+[32mcreated [1m./lib/cijson-operator.esm.js, ./lib/cijson-operator.js[22m in [1m3.4s[22m[39m

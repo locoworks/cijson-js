@@ -1,0 +1,13 @@
+diff --git a/node_modules/sql-bricks/sql-bricks.js b/node_modules/sql-bricks/sql-bricks.js
+index 7a1035e..e32853a 100644
+--- a/node_modules/sql-bricks/sql-bricks.js
++++ b/node_modules/sql-bricks/sql-bricks.js
+@@ -25,7 +25,7 @@
+ 
+   function cloneObj(obj) {
+     if (types.isArray(obj))
+-      return [].concat(arr);
++      return [].concat(obj);
+     else
+       return extend({}, obj);
+   }

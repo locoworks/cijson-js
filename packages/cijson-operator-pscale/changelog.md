@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.10
+
+### Patch Changes
+
+- 1eb892c: Fix issue with limit and offset
+
 ## 0.0.9
 
 ### Patch Changes
