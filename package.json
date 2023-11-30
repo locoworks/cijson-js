@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "postinstall": "patch-package",
     "build": "turbo run build",
     "build:publish": "turbo run build:publish --force",
     "clean": "turbo run clean",
@@ -35,7 +36,8 @@
   ],
   "dependencies": {
     "@changesets/cli": "^2.26.1",
-    "dotenv-cli": "^7.1.0"
+    "dotenv-cli": "^7.1.0",
+    "patch-package": "^8.0.0"
   },
   "devDependencies": {
     "prettier": "^2.8.4",
