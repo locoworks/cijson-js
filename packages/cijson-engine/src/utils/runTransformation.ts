@@ -22,7 +22,6 @@ const runTransformation = async (config: Config, context: Context, valueFromSour
             let getWhere: any = {};
             getWhere[transformation.findByKey] =
                 valueFromSource[transformation.findByValue];
-            //   console.log("here to find", valueFromSource, transformation);
 
             operations.push({
                 resourceSpec: resourceSpec,
@@ -30,7 +29,6 @@ const runTransformation = async (config: Config, context: Context, valueFromSour
                 where: getWhere,
             });
 
-            // transformedValue = await mentalConfig.operator(operations);
             transformedValue = await config.operator.run(operations || []);
 
             transformedValue = pickKeysFromObject(
@@ -55,11 +53,7 @@ const runTransformation = async (config: Config, context: Context, valueFromSour
                 selectColumns: [transformation.extract],
             });
 
-            // console.log("RUNTRANSFORMATION---operations::>", operations);
-
             transformedValue = await config.operator.run(operations || []);
-
-            // console.log("RUNTRANSFORMATION---transformedValue::>", transformedValue);
 
             transformedValue = transformedValue.data.map((t: any) => {
                 return t[transformation.extract];
@@ -74,10 +68,6 @@ const runTransformation = async (config: Config, context: Context, valueFromSour
         default:
             break;
     }
-
-    //   console.log("ope", operations);
-
-    // console.log("result", transformedValue);
 
     return transformedValue;
 };
