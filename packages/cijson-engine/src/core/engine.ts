@@ -4,6 +4,8 @@ import ReadAction from "../actions/read";
 import UpdateAction from "../actions/update";
 import type { Config, Context } from "../interfaces";
 import executeSequence from "../utils/executeSequence";
+import fillBelongsToOneResources from "./fillBelongsToOneResources";
+import fillHasOneResources from "./fillHasOneResources";
 import fillHasManyResources from "./fillHasManyResources";
 
 class CIJEngine {
@@ -81,8 +83,10 @@ class CIJEngine {
 
     if (context.action === "read") {
       const result = await ReadAction(this.config, context);
-
+      console.log("chekc here result in engine::>", result);
       context = await executeSequence(this.config, context, [
+        fillBelongsToOneResources,
+        fillHasOneResources,
         fillHasManyResources,
       ]);
 

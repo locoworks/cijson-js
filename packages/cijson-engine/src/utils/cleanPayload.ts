@@ -43,55 +43,55 @@ const cleanPayload = async (config: Config, context: Context) => {
 
   // mutationColumns = [...mutationColumns];
 
-  // let belongsToOneColumns = attributes
-  //   .filter((c: Attribute) => {
-  //     return c.relation && c.relation.type === "belongs_to_one";
-  //   })
-  //   .map((c: Attribute) => {
-  //     relationColumns["belongs_to_one"].push(c.identifier);
-  //     return `${c.relation.resolveTo || c.identifier}`;
-  //   });
+  let belongsToOneColumns = resourceSpec.relations
+    .filter((c: any) => {
+      return c.relation.type === "belongs_to_one";
+    })
+    .map((c: any) => {
+      relationColumns["belongs_to_one"].push(c.identifier);
+      return `${c.relation.resolveTo || c.identifier}`;
+    });
 
-  // belongsToOneColumns = [...belongsToOneColumns];
+  belongsToOneColumns = [...belongsToOneColumns];
 
-  // let belongsToOneMappings = attributes
-  // 	.filter((c) => {
-  // 		return c.relation && c.relation.type === "belongs_to_one";
-  // 	})
-  // 	.reduce(
-  // 		(obj, c) =>
-  // 			Object.assign(obj, {
-  // 				[`${c.relation.resolveTo || c.identifier}`]: c,
-  // 			}),
-  // 		{},
-  // 	);
+  let belongsToOneMappings = resourceSpec.relations
+    .filter((c: any) => {
+      return c.relation.type === "belongs_to_one";
+    })
+    .reduce(
+      (obj: any, c: any) =>
+        Object.assign(obj, {
+          [`${c.relation.resolveTo || c.identifier}`]: c,
+        }),
+      {},
+    );
 
-  // belongsToOneMappings = { ...belongsToOneMappings };
+  belongsToOneMappings = { ...belongsToOneMappings };
 
-  // let hasOneColumns = attributes
-  // 	.filter((c) => {
-  // 		return c.relation && c.relation.type === "has_one";
-  // 	})
-  // 	.map((c) => {
-  // 		relationColumns["has_one"].push(c.identifier);
-  // 		return `${c.relation.resolveTo || c.identifier}`;
-  // 	});
+  let hasOneColumns = resourceSpec.relations
+    .filter((c: any) => {
+      return c.relation.type === "has_one";
+    })
+    .map((c: any) => {
+      relationColumns["has_one"].push(c.identifier);
+      return `${c.relation.resolveTo || c.identifier}`;
+    });
 
-  // hasOneColumns = [...hasOneColumns];
+  hasOneColumns = [...hasOneColumns];
 
-  // let hasOneMappings = attributes
-  // 	.filter((c) => {
-  // 		return c.relation && c.relation.type === "has_one";
-  // 	})
-  // 	.reduce(
-  // 		(obj, c) =>
-  // 			Object.assign(obj, {
-  // 				[`${c.relation.resolveTo || c.identifier}`]: c,
-  // 			}),
-  // 		{},
-  // 	);
+  let hasOneMappings = resourceSpec.relations
+    .filter((c: any) => {
+      return c.relation.type === "has_one";
+    })
+    .reduce(
+      (obj: any, c: any) =>
+        Object.assign(obj, {
+          [`${c.relation.resolveTo || c.identifier}`]: c,
+        }),
+      {},
+    );
 
-  // hasOneMappings = { ...hasOneMappings };
+  hasOneMappings = { ...hasOneMappings };
 
   let hasManyColumns = resourceSpec.relations
     .filter((c: any) => {
@@ -172,10 +172,10 @@ const cleanPayload = async (config: Config, context: Context) => {
   context["directColumns"] = directColumns;
   context["primaryColumns"] = resourceSpec.primary;
 
-  // context["belongsToOneColumns"] = belongsToOneColumns;
-  // locoAction["belongsToOneMappings"] = belongsToOneMappings;
-  // locoAction["hasOneColumns"] = hasOneColumns;
-  // locoAction["hasOneMappings"] = hasOneMappings;
+  context["belongsToOneColumns"] = belongsToOneColumns;
+  context["belongsToOneMappings"] = belongsToOneMappings;
+  context["hasOneColumns"] = hasOneColumns;
+  context["hasOneMappings"] = hasOneMappings;
   context["hasManyColumns"] = hasManyColumns;
   context["hasManyMappings"] = hasManyMappings;
   // locoAction["hasManyViaPivotColumns"] = hasManyViaPivotColumns;

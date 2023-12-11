@@ -43,8 +43,11 @@ export interface Context {
     primaryColumns?: string[];
     hasManyColumns?: string[];
     hasManyMappings?: any;
+    hasOneColumns?: string[];
+    hasOneMappings?: any;
     relationColumns?: any;
     belongsToOneColumns?: string[];
+    belongsToOneMappings?: any;
     operations?: any[];
     actionResult?: any;
 }
