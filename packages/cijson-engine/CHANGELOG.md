@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.19
+
+### Patch Changes
+
+- d17027c: has_one and belongs_to_one relation added
+
 ## 0.0.18
 
 ### Patch Changes
