@@ -3,17 +3,15 @@ import type { Config, Context } from "../interfaces";
 import prepareRelationIncludes from "../utils/prepareRelationIncludes";
 
 const fillBelongsToOneResources = async (config: Config, context: Context) => {
-    console.log("belongsToOne::>>>", context);
     const { belongsToOneMappings } = context;
     const belongsToOneColumns = context.belongsToOneColumns || [];
-    console.log("hasOneMappings::>", belongsToOneMappings, belongsToOneColumns);
 
     const includeRelations = prepareRelationIncludes(
         context,
         belongsToOneColumns,
         belongsToOneMappings
     );
-    console.log("includeRelations", includeRelations);
+
     // Get the current data
     const currentData = context.actionResult["data"];
 

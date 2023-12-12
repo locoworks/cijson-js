@@ -4,17 +4,14 @@ import type { Config, Context } from "../interfaces";
 import prepareRelationIncludes from "../utils/prepareRelationIncludes";
 
 const fillHasOneResources = async (config: Config, context: Context) => {
-    console.log("helloo rajesh inside hasOne", context);
     const { hasOneMappings } = context;
     const hasOneColumns = context.hasOneColumns || [];
-    // console.log("hasOneMappings::>", hasOneMappings, hasOneColumns);
 
     const includeRelations = prepareRelationIncludes(
         context,
         hasOneColumns,
         hasOneMappings
     );
-    console.log("includeRelations", includeRelations);
     // Get the current data
     const currentData = context.actionResult["data"];
 

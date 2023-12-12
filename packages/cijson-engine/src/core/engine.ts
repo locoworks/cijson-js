@@ -16,7 +16,6 @@ class CIJEngine {
   }
 
   async create(resourceName: string, context: any) {
-    // console.log("we came here to create -----");
 
     return await this.performAction({
       ...{
@@ -78,12 +77,11 @@ class CIJEngine {
   }
 
   async performAction(context: Context) {
-    // console.log("performAction", context.resourceName, context.action);
     const transformations = context.transformations || [];
 
     if (context.action === "read") {
       const result = await ReadAction(this.config, context);
-      console.log("chekc here result in engine::>", result);
+
       context = await executeSequence(this.config, context, [
         fillBelongsToOneResources,
         fillHasOneResources,
