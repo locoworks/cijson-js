@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.20
+
+### Patch Changes
+
+- b83a3a0: Code cleanup
+
 ## 0.0.19
 
 ### Patch Changes
