@@ -1,6 +1,6 @@
 {
   "name": "@locoworks/cijson-engine",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Code in JSON",
   "main": "lib/cijson-engine.js",
   "module": "lib/cijson-engine.esm.js",
