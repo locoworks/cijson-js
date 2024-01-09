@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.21
+
+### Patch Changes
+
+- 13ec108: Added filHasManyPivotResource functionality
+
 ## 0.0.20
 
 ### Patch Changes
