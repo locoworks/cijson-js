@@ -118,30 +118,30 @@ const cleanPayload = async (config: Config, context: Context) => {
 
   hasManyMappings = { ...hasManyMappings };
 
-  // let hasManyViaPivotColumns = attributes
-  // 	.filter((c) => {
-  // 		return c.relation && c.relation.type === "has_many_via_pivot";
-  // 	})
-  // 	.map((c) => {
-  // 		relationColumns["has_many_via_pivot"].push(c.identifier);
-  // 		return `${c.relation.resolveTo || c.identifier}`;
-  // 	});
+  let hasManyViaPivotColumns = resourceSpec.relations
+    .filter((c: any) => {
+      return c.relation && c.relation.type === "has_many_via_pivot";
+    })
+    .map((c: any) => {
+      relationColumns["has_many_via_pivot"].push(c.identifier);
+      return `${c.relation.resolveTo || c.identifier}`;
+    });
 
-  // hasManyViaPivotColumns = [...hasManyViaPivotColumns];
+  hasManyViaPivotColumns = [...hasManyViaPivotColumns];
 
-  // let hasManyViaPivotMappings = attributes
-  // 	.filter((c) => {
-  // 		return c.relation && c.relation.type === "has_many_via_pivot";
-  // 	})
-  // 	.reduce(
-  // 		(obj, c) =>
-  // 			Object.assign(obj, {
-  // 				[`${c.relation.resolveTo || c.identifier}`]: c,
-  // 			}),
-  // 		{},
-  // 	);
+  let hasManyViaPivotMappings = resourceSpec.relations
+    .filter((c: any) => {
+      return c.relation && c.relation.type === "has_many_via_pivot";
+    })
+    .reduce(
+      (obj: any, c: any) =>
+        Object.assign(obj, {
+          [`${c.relation.resolveTo || c.identifier}`]: c,
+        }),
+      {},
+    );
 
-  // hasManyViaPivotMappings = { ...hasManyViaPivotMappings };
+  hasManyViaPivotMappings = { ...hasManyViaPivotMappings };
 
   // // console.log("before cleaning", attributes, hasOneColumns);
 
@@ -178,8 +178,8 @@ const cleanPayload = async (config: Config, context: Context) => {
   context["hasOneMappings"] = hasOneMappings;
   context["hasManyColumns"] = hasManyColumns;
   context["hasManyMappings"] = hasManyMappings;
-  // locoAction["hasManyViaPivotColumns"] = hasManyViaPivotColumns;
-  // locoAction["hasManyViaPivotMappings"] = hasManyViaPivotMappings;
+  context["hasManyViaPivotColumns"] = hasManyViaPivotColumns;
+  context["hasManyViaPivotMappings"] = hasManyViaPivotMappings;
   // locoAction["mutationColumns"] = mutationColumns;
   context["relationColumns"] = relationColumns;
 

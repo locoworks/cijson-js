@@ -48,6 +48,8 @@ export interface Context {
     relationColumns?: any;
     belongsToOneColumns?: string[];
     belongsToOneMappings?: any;
+    hasManyViaPivotColumns?: string[];
+    hasManyViaPivotMappings?: any;
     operations?: any[];
     actionResult?: any;
 }

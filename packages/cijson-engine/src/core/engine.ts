@@ -7,6 +7,7 @@ import executeSequence from "../utils/executeSequence";
 import fillBelongsToOneResources from "./fillBelongsToOneResources";
 import fillHasOneResources from "./fillHasOneResources";
 import fillHasManyResources from "./fillHasManyResources";
+import fillHasManyWithPivotResources from "./fillHasManyWithPivotResources";
 
 class CIJEngine {
   public config: Config;
@@ -86,6 +87,7 @@ class CIJEngine {
         fillBelongsToOneResources,
         fillHasOneResources,
         fillHasManyResources,
+        fillHasManyWithPivotResources
       ]);
 
       if (transformations.length > 0) {
