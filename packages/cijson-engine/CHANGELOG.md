@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.22
+
+### Patch Changes
+
+- 95c4f68: Check for currentData length while operating on relationships
+
 ## 0.0.21
 
 ### Patch Changes
