@@ -17,6 +17,10 @@ const fillHasManyResources = async (config: Config, context: Context) => {
 
   const currentData = context.actionResult["data"];
 
+  if (currentData.length === 0) {
+    return context;
+  }
+
   for (let index = 0; index < hasManyColumns.length; index++) {
     const column = hasManyColumns[index];
     const columnSpec = hasManyMappings[column];
