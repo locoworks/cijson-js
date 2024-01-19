@@ -11,20 +11,43 @@ import fillHasManyWithPivotResources from "./fillHasManyWithPivotResources";
 
 class CIJEngine {
   public config: Config;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public eventHandler?: (arg: any) => void;
 
   constructor(config: Config) {
     this.config = config;
   }
 
-  async create(resourceName: string, context: any) {
+  // Method to set the event handler
+  public setEventHandler(handler: (arg: any) => void): void {
+    this.eventHandler = handler;
+  }
 
-    return await this.performAction({
+  // Method to trigger the event handler
+  public triggerEventHandler(arg: any): void {
+    if (this.eventHandler) {
+      this.eventHandler(arg);
+    } else {
+      // console.log("Event handler is not set.");
+    }
+  }
+
+  async create(resourceName: string, context: any) {
+    const response = await this.performAction({
       ...{
         resourceName: resourceName,
         action: "create",
       },
       ...context,
     });
+
+    this.triggerEventHandler({
+      resourceName: resourceName,
+      action: "create",
+      data: response,
+    });
+
+    return response;
   }
 
   async read(resourceName: string, context: any) {
@@ -87,7 +110,7 @@ class CIJEngine {
         fillBelongsToOneResources,
         fillHasOneResources,
         fillHasManyResources,
-        fillHasManyWithPivotResources
+        fillHasManyWithPivotResources,
       ]);
 
       if (transformations.length > 0) {
