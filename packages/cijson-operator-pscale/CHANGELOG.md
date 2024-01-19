@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.13
+
+### Patch Changes
+
+- 8adb685: Improve pscale performance
+
 ## 0.0.12
 
 ### Patch Changes
