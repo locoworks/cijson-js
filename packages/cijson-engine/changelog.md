@@ -1,5 +1,29 @@
 # @locoworks/cijson-engine
 
+## 0.0.21
+
+### Patch Changes
+
+- 13ec108: Added filHasManyPivotResource functionality
+
+## 0.0.20
+
+### Patch Changes
+
+- b83a3a0: Code cleanup
+
+## 0.0.19
+
+### Patch Changes
+
+- d17027c: has_one and belongs_to_one relation added
+
+## 0.0.18
+
+### Patch Changes
+
+- ab14efd: code cleanup
+
 ## 0.0.17
 
 ### Patch Changes

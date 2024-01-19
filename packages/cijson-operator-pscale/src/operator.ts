@@ -134,209 +134,218 @@ class PScaleOperator implements Operator {
     this.pscale = pscale;
   }
 
+  async runLoop(pscale: any, operations: any) {
+    let opResult: any = [];
+
+    for (
+      let dbOpsCounter = 0;
+      dbOpsCounter < operations.length;
+      dbOpsCounter++
+    ) {
+      const dbOp = operations[dbOpsCounter];
+      dbOp["table"] = dbOp.resourceSpec.persistence.table;
+      const deleted_at_column =
+        dbOp.resourceSpec.persistence.deleted_at_column || "deleted_at";
+
+      let filters;
+      let dataBuilder;
+      let totalBuilder;
+      let queryPrinter;
+      let dataResult;
+      let totalResult;
+      let total;
+      let builtResult;
+
+      switch (dbOp.type) {
+        case "soft_delete":
+          filters = dbOp.filters;
+          dataBuilder = sqlBricks.update(dbOp.table, dbOp.payload);
+          dataBuilder = addFilters(dataBuilder, filters);
+          dataBuilder = dataBuilder.where(dbOp.where);
+
+          queryPrinter = dataBuilder.clone();
+
+          dataResult = await pscale.execute(dataBuilder.clone().toString(), []);
+
+          builtResult = {
+            data: dataResult.rows,
+            debug: {
+              queryPrinter: queryPrinter.toString(),
+            },
+          };
+
+          opResult = builtResult;
+
+          break;
+
+        case "delete":
+          filters = dbOp.filters;
+          dataBuilder = sqlBricks.delete(dbOp.table);
+          dataBuilder = addFilters(dataBuilder, filters);
+          dataBuilder = dataBuilder.where(dbOp.where);
+
+          queryPrinter = dataBuilder.clone();
+          dataResult = await pscale.execute(dataBuilder.clone().toString(), []);
+
+          builtResult = {
+            data: dataResult.rows,
+            debug: {
+              queryPrinter: queryPrinter.toString(),
+            },
+          };
+
+          opResult = builtResult;
+
+          break;
+
+        case "insert":
+          dataBuilder = await sqlBricks.insert(dbOp.table, dbOp.payload);
+
+          queryPrinter = dataBuilder.clone();
+
+          opResult = await pscale.execute(dataBuilder.clone().toString(), []);
+
+          break;
+
+        case "count":
+          totalBuilder = sqlBricks
+            .select("COUNT(*)")
+            .from(dbOp.table)
+            .where(sqlBricks.isNull(deleted_at_column));
+
+          if (Object.keys(dbOp.where).length > 0) {
+            totalBuilder = totalBuilder.where(dbOp.where);
+          }
+          if (Object.keys(dbOp.whereNot).length > 0) {
+            totalBuilder = totalBuilder.where(sqlBricks.not(dbOp.whereNot));
+          }
+
+          queryPrinter = totalBuilder.clone();
+
+          totalResult = await pscale.execute(
+            totalBuilder.clone().toString(),
+            []
+          );
+          opResult = parseInt(totalResult.rows[0]["count(*)"]);
+
+          break;
+
+        case "update":
+          dataBuilder = await sqlBricks
+            .update(dbOp.table, dbOp.payload)
+            .where(dbOp.where);
+
+          queryPrinter = dataBuilder.clone();
+
+          opResult = await pscale.execute(dataBuilder.clone().toString(), []);
+
+          // console.log("opResult update ---", opResult);
+
+          break;
+
+        case "select_first":
+          dataBuilder = await sqlBricks(dbOp.table)
+            .select("*")
+            .where(dbOp.where)
+            .first();
+
+          opResult = await pscale.execute(dataBuilder.clone().toString(), []);
+
+          // console.log("opResult", opResult.rows);
+
+          break;
+
+        case "select":
+          filters = dbOp.filters;
+
+          if (dbOp.selectColumns) {
+            dataBuilder = sqlBricks.select(dbOp.selectColumns);
+          } else {
+            dataBuilder = sqlBricks.select("*");
+          }
+
+          dataBuilder = dataBuilder
+            .from(dbOp.table)
+            .where(sqlBricks.isNull(deleted_at_column));
+
+          totalBuilder = sqlBricks
+            .select("COUNT(*)")
+            .from(dbOp.table)
+            .where(sqlBricks.isNull(deleted_at_column));
+
+          // dataBuilder = this.instance(dbOp.table).whereNull(
+          //   deleted_at_column
+          // );
+          // dataBuilder = addFilters(this.instance, dataBuilder, filters);
+          dataBuilder = addFilters(dataBuilder, filters);
+          totalBuilder = addFilters(totalBuilder, filters);
+
+          if (dbOp.sortBy) {
+            let orderByClause = dbOp.sortBy
+              .map((s: any) => {
+                return `${s.column} ${s.order}`;
+              })
+              .join(", ");
+            if (orderByClause !== "") {
+              dataBuilder = dataBuilder.orderBy(orderByClause);
+            }
+          }
+
+          if (dbOp.limit !== undefined && dbOp.limit !== 999) {
+            dataBuilder = dataBuilder.limit(dbOp.limit);
+          }
+
+          if (
+            dbOp.offset !== undefined &&
+            dbOp.limit !== undefined &&
+            dbOp.limit !== 999
+          ) {
+            dataBuilder = dataBuilder.offset(dbOp.offset);
+          }
+
+          queryPrinter = dataBuilder.toString();
+
+          dataResult = await pscale.execute(queryPrinter, []);
+          totalResult = await pscale.execute(
+            totalBuilder.clone().toString(),
+            []
+          );
+          total = parseInt(totalResult.rows[0]["count(*)"]);
+
+          // console.log("dataBuilder", dataResult);
+          // console.log("totalResult", totalResult);
+          // console.log("totalBuilder", totalBuilder.clone().toString());
+
+          builtResult = {
+            data: dataResult.rows,
+            meta: {
+              total: total,
+              offset: dbOp.offset,
+              page: dbOp.page,
+              per_page: dbOp.limit,
+              total_page: Math.ceil(total / dbOp.limit),
+            },
+            debug: {
+              queryPrinter: queryPrinter,
+            },
+          };
+
+          // console.log("builtResult", builtResult);
+
+          opResult = builtResult;
+
+          break;
+      }
+    }
+
+    return opResult;
+  }
+
   async run(operations: any[]) {
     // console.log("run", operations);
 
-    const results = await this.pscale.transaction(async (tx: any) => {
-      let opResult: any = [];
-
-      for (
-        let dbOpsCounter = 0;
-        dbOpsCounter < operations.length;
-        dbOpsCounter++
-      ) {
-        const dbOp = operations[dbOpsCounter];
-        dbOp["table"] = dbOp.resourceSpec.persistence.table;
-        const deleted_at_column =
-          dbOp.resourceSpec.persistence.deleted_at_column || "deleted_at";
-
-        let filters;
-        let dataBuilder;
-        let totalBuilder;
-        let queryPrinter;
-        let dataResult;
-        let totalResult;
-        let total;
-        let builtResult;
-
-        switch (dbOp.type) {
-          case "soft_delete":
-            filters = dbOp.filters;
-            dataBuilder = sqlBricks.update(dbOp.table, dbOp.payload);
-            dataBuilder = addFilters(dataBuilder, filters);
-            dataBuilder = dataBuilder.where(dbOp.where);
-
-            queryPrinter = dataBuilder.clone();
-
-            dataResult = await tx.execute(dataBuilder.clone().toString(), []);
-
-            builtResult = {
-              data: dataResult.rows,
-              debug: {
-                queryPrinter: queryPrinter.toString(),
-              },
-            };
-
-            opResult = builtResult;
-
-            break;
-
-          case "delete":
-            filters = dbOp.filters;
-            dataBuilder = sqlBricks.delete(dbOp.table);
-            dataBuilder = addFilters(dataBuilder, filters);
-            dataBuilder = dataBuilder.where(dbOp.where);
-
-            queryPrinter = dataBuilder.clone();
-            dataResult = await tx.execute(dataBuilder.clone().toString(), []);
-
-            builtResult = {
-              data: dataResult.rows,
-              debug: {
-                queryPrinter: queryPrinter.toString(),
-              },
-            };
-
-            opResult = builtResult;
-
-            break;
-
-          case "insert":
-            dataBuilder = await sqlBricks.insert(dbOp.table, dbOp.payload);
-
-            queryPrinter = dataBuilder.clone();
-
-            opResult = await tx.execute(dataBuilder.clone().toString(), []);
-
-            break;
-
-          case "count":
-            totalBuilder = sqlBricks
-              .select("COUNT(*)")
-              .from(dbOp.table)
-              .where(sqlBricks.isNull(deleted_at_column));
-
-            if (Object.keys(dbOp.where).length > 0) {
-              totalBuilder = totalBuilder.where(dbOp.where);
-            }
-            if (Object.keys(dbOp.whereNot).length > 0) {
-              totalBuilder = totalBuilder.where(sqlBricks.not(dbOp.whereNot));
-            }
-
-            queryPrinter = totalBuilder.clone();
-
-            totalResult = await tx.execute(totalBuilder.clone().toString(), []);
-            opResult = parseInt(totalResult.rows[0]["count(*)"]);
-
-            break;
-
-          case "update":
-            dataBuilder = await sqlBricks
-              .update(dbOp.table, dbOp.payload)
-              .where(dbOp.where);
-
-            queryPrinter = dataBuilder.clone();
-
-            opResult = await tx.execute(dataBuilder.clone().toString(), []);
-
-            // console.log("opResult update ---", opResult);
-
-            break;
-
-          case "select_first":
-            dataBuilder = await sqlBricks(dbOp.table)
-              .select("*")
-              .where(dbOp.where)
-              .first();
-
-            opResult = await tx.execute(dataBuilder.clone().toString(), []);
-
-            // console.log("opResult", opResult.rows);
-
-            break;
-
-          case "select":
-            filters = dbOp.filters;
-
-            if (dbOp.selectColumns) {
-              dataBuilder = sqlBricks.select(dbOp.selectColumns);
-            } else {
-              dataBuilder = sqlBricks.select("*");
-            }
-
-            dataBuilder = dataBuilder
-              .from(dbOp.table)
-              .where(sqlBricks.isNull(deleted_at_column));
-
-            totalBuilder = sqlBricks
-              .select("COUNT(*)")
-              .from(dbOp.table)
-              .where(sqlBricks.isNull(deleted_at_column));
-
-            // dataBuilder = this.instance(dbOp.table).whereNull(
-            //   deleted_at_column
-            // );
-            // dataBuilder = addFilters(this.instance, dataBuilder, filters);
-            dataBuilder = addFilters(dataBuilder, filters);
-            totalBuilder = addFilters(totalBuilder, filters);
-
-            if (dbOp.sortBy) {
-              let orderByClause = dbOp.sortBy
-                .map((s: any) => {
-                  return `${s.column} ${s.order}`;
-                })
-                .join(", ");
-              if (orderByClause !== "") {
-                dataBuilder = dataBuilder.orderBy(orderByClause);
-              }
-            }
-
-            if (dbOp.limit !== undefined && dbOp.limit !== 999) {
-              dataBuilder = dataBuilder.limit(dbOp.limit);
-            }
-
-            if (
-              dbOp.offset !== undefined &&
-              dbOp.limit !== undefined &&
-              dbOp.limit !== 999
-            ) {
-              dataBuilder = dataBuilder.offset(dbOp.offset);
-            }
-
-            queryPrinter = dataBuilder.toString();
-
-            dataResult = await tx.execute(queryPrinter, []);
-            totalResult = await tx.execute(totalBuilder.clone().toString(), []);
-            total = parseInt(totalResult.rows[0]["count(*)"]);
-
-            // console.log("dataBuilder", dataResult);
-            // console.log("totalResult", totalResult);
-            // console.log("totalBuilder", totalBuilder.clone().toString());
-
-            builtResult = {
-              data: dataResult.rows,
-              meta: {
-                total: total,
-                offset: dbOp.offset,
-                page: dbOp.page,
-                per_page: dbOp.limit,
-                total_page: Math.ceil(total / dbOp.limit),
-              },
-              debug: {
-                queryPrinter: queryPrinter,
-              },
-            };
-
-            // console.log("builtResult", builtResult);
-
-            opResult = builtResult;
-
-            break;
-        }
-      }
-
-      return opResult;
-    });
+    // const results = await this.pscale.transaction(async (tx: any) => {});
+    const results = await this.runLoop(this.pscale, operations);
 
     // console.log("pscale results ---->", results);
 
