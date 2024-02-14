@@ -12,6 +12,12 @@ const addFilters = (sDataBuilder: any, filters: any) => {
   for (let index = 0; index < filters.length; index++) {
     const filter = filters[index];
     switch (filter.op.toLowerCase()) {
+      case "like":
+        sDataBuilder = sDataBuilder.where(
+          sqlBricks.like(filter.column, `%${filter.value}%`)
+        );
+        break;
+
       // case "like":
       //   sDataBuilder = sDataBuilder.where(
       //     knex.raw(`LOWER(${filter.column})`),
