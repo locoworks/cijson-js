@@ -1,5 +1,11 @@
 # @locoworks/cijson-operator-pscale
 
+## 0.0.14
+
+### Patch Changes
+
+- 974f5aa: Add LIKE op
+
 ## 0.0.13
 
 ### Patch Changes
