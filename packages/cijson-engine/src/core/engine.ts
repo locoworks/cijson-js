@@ -61,33 +61,57 @@ class CIJEngine {
   }
 
   async update(resourceName: string, context: any) {
-    return await this.performAction({
+    const response = await this.performAction({
       ...{
         resourceName: resourceName,
         action: "update",
       },
       ...context,
     });
+
+    this.triggerEventHandler({
+      resourceName: resourceName,
+      action: "update",
+      data: response,
+    });
+
+    return response;
   }
 
   async patch(resourceName: string, context: any) {
-    return await this.performAction({
+    const response = await this.performAction({
       ...{
         resourceName: resourceName,
         action: "patch",
       },
       ...context,
     });
+
+    this.triggerEventHandler({
+      resourceName: resourceName,
+      action: "patch",
+      data: response,
+    });
+
+    return response;
   }
 
   async delete(resourceName: string, context: any) {
-    return await this.performAction({
+    const response = await this.performAction({
       ...{
         resourceName: resourceName,
         action: "delete",
       },
       ...context,
     });
+
+    this.triggerEventHandler({
+      resourceName: resourceName,
+      action: "delete",
+      data: response,
+    });
+
+    return response;
   }
 
   async query(resourceName: string, context: any) {
