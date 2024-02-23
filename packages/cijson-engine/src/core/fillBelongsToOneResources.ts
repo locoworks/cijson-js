@@ -71,8 +71,7 @@ const fillBelongsToOneResources = async (config: Config, context: Context) => {
         includeRelations: [],
       },
       pagination: {
-        per_page: 1,
-        page: 1,
+        per_page: 999,
       },
       sortBy: sortBy,
       filterBy: filterWhereClauses,

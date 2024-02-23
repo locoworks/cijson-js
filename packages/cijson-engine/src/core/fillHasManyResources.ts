@@ -65,7 +65,7 @@ const fillHasManyResources = async (config: Config, context: Context) => {
         includeRelations: [],
       },
       pagination: {
-        per_page: undefined,
+        per_page: 999,
         page: 1,
       },
       sortBy: sortBy,
