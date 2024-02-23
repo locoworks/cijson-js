@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.24
+
+### Patch Changes
+
+- 3581894: Add triggerEventHandler for other actions
+
 ## 0.0.23
 
 ### Patch Changes
