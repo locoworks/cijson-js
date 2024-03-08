@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.25
+
+### Patch Changes
+
+- 9c7b3fd: Remove limit for relation queries
+
 ## 0.0.24
 
 ### Patch Changes
