@@ -3,7 +3,7 @@ import { pickKeysFromObject } from "@locoworks/cijson-utils";
 import { Config, Context, FilterBy } from "../../interfaces";
 
 const generateOperations = async (config: Config, context: Context) => {
-  const { payload, filterBy } = context;
+  const { payload, filterBy, addlFilterBy } = context;
   const resourceSpec = config.resources[context.resourceName];
   const operations = [];
   const primaryColumns = context.primaryColumns || [];
@@ -35,6 +35,7 @@ const generateOperations = async (config: Config, context: Context) => {
       type: "delete",
       where: deleteWhere,
       filters: filters,
+      addlFilterBy: addlFilterBy || undefined,
     });
   } else {
     operations.push({
@@ -42,6 +43,7 @@ const generateOperations = async (config: Config, context: Context) => {
       type: "soft_delete",
       payload: payload,
       filters: filters,
+      addlFilterBy: addlFilterBy || undefined,
       where: deleteWhere,
     });
   }

@@ -10,6 +10,7 @@ const getOperations = async (config: Config, context: Context) => {
     const limitBy = payload?.limitBy ||
       resourceSpec.limitBy || { page: 1, per_page: 10 };
     const filterBy = payload?.filterBy || [];
+    const addlFilterBy = payload?.addlFilterBy || undefined;
     let sortBy = payload?.sortBy || resourceSpec.sortBy || [];
     const table = resourceSpec.persistence.table;
     let filters = [];
@@ -39,6 +40,7 @@ const getOperations = async (config: Config, context: Context) => {
       resourceSpec: resourceSpec,
       type: "select",
       filters: filters,
+      addlFilterBy: addlFilterBy,
       selectColumns: selectColumns,
       limit: limitBy.per_page,
       offset: (limitBy.page - 1) * limitBy.per_page,

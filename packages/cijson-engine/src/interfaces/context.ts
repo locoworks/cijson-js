@@ -29,6 +29,7 @@ export interface APIPayload {
   sortBy?: SortBy[];
   pagination?: Pagination;
   filterBy?: FilterBy[];
+  addlFilterBy?: any;
   [key: string]: any;
 }
 
@@ -41,6 +42,7 @@ export interface Context {
   action: string;
   payload?: Payload;
   filterBy?: FilterBy[];
+  addlFilterBy?: any;
   limitBy?: LimitBy;
   sortBy?: SortBy;
   filters?: any[];
