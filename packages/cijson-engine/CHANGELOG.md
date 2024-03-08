@@ -1,5 +1,11 @@
 # @locoworks/cijson-engine
 
+## 0.0.26
+
+### Patch Changes
+
+- e9f3876: Add addlFilterBy
+
 ## 0.0.25
 
 ### Patch Changes
